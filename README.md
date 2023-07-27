@@ -22,8 +22,10 @@ This is a responsive personal portfolio site that showcases my web development s
 
 ## Tools used
 
+- [React](https://react.dev/)
 - [Vite](https://vitejs.dev/)
 - [Vitest](https://vitest.dev/)
 - [Testing Library](https://testing-library.com/)
 - [Tailwind](https://tailwindcss.com/)
 - [Google Fonts](https://fonts.google.com/)
+- [Simple Icons](https://simpleicons.org/)
