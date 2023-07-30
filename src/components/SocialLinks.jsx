@@ -3,7 +3,7 @@ import { Icon } from "./Icon";
 export function SocialLinks() {
   const linkedinID = "linkedin";
   return (
-    <article className="flex justify-center gap-6 pt-3">
+    <article className="flex justify-center gap-6 pt-3 ">
       <a
         href="https://github.com/TheRealBill91"
         target="_blank"

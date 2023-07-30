@@ -1,15 +1,19 @@
+import { memo } from "react";
 import { SocialLinks } from "./SocialLinks";
 
-export function Footer() {
+export const Footer = memo(function Footer() {
   return (
-    <footer className="p-6 flex flex-col items-center gap-4">
-      <h2 className="font-bold text-lg text-center pt-3" >Contact Me</h2>
-      <p className="mx-4 text-center leading-7">
-        If your interested in working with someone dedicated to web development
-        and providing value to customers, please get in touch
+    <footer
+      id="contact"
+      className="flex flex-col items-center gap-2 bg-gray-200 p-6 pb-10 "
+    >
+      <h2 className="pb-2 pt-3 text-center text-2xl font-bold">Contact Me</h2>
+      <p className="mx-2 text-left leading-7">
+        If your interested in working with someone <em>dedicated</em> to web
+        development and providing value to customers, please get in touch.
       </p>
-      <p>Email: emailplaceholder</p>
+      {/* <p>Email: emailplaceholder</p> */}
       <SocialLinks />
     </footer>
   );
-}
+});
