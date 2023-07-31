@@ -11,17 +11,16 @@ import todolistsml from "../assets/photos/todo-list-images/todo-list-sml.png";
 import { memo } from "react";
 
 export const MyWork = memo(function MyWork() {
-  console.log("rerender?");
   const GITHUB_SVG_ID = "GithubLogo";
   const OPEN_IN_NEW_ID = "open-in-new";
   return (
     <section id="myWork" className="p-4">
-      <h2 className="text-black-600 pb-4 text-center text-2xl font-bold">
+      <h2 className="text-black-600 pb-4 text-center text-2xl font-bold text-slate-900 dark:text-gray-100">
         My Work
       </h2>
 
       <div className="flex flex-col gap-8">
-        <article className="rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-400/70  shadow-md ">
+        <article className="  rounded-md  bg-white bg-gradient-to-t from-white from-30% to-gray-400/70 shadow-md dark:rounded-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 ">
           <img
             className="rounded-md rounded-b-none px-0"
             src={timelesslg}
@@ -29,12 +28,12 @@ export const MyWork = memo(function MyWork() {
             sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px "
             alt="watch e-commerce store home page"
           ></img>
-          <div className=" flex flex-col gap-5 p-6 pt-4 ">
-            <p className="text-center text-gray-600">
+          <div className=" flex flex-col gap-6 p-6 pt-4 dark:rounded-b-md ">
+            <p className="text-center text-slate-600 dark:text-gray-300">
               {" "}
               An e-commerce watch store built using Vite & React Router
             </p>
-            <div className="flex items-center justify-evenly gap-4">
+            <div className="flex items-center justify-evenly gap-5 text-slate-900 dark:text-gray-100">
               <h3 className="text-center text-lg ">Timeless </h3>
               <div className="flex gap-4">
                 <a
@@ -61,7 +60,7 @@ export const MyWork = memo(function MyWork() {
             </div>
           </div>
         </article>
-        <article className="rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70  shadow-md">
+        <article className="rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70  shadow-md dark:rounded-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20">
           <img
             src={weatherlg}
             srcSet={`${weathermd} 767w, ${weathersml} 500w `}
@@ -69,12 +68,12 @@ export const MyWork = memo(function MyWork() {
             alt="weather forecast website home page"
             className="rounded-md rounded-b-none"
           ></img>
-          <div className=" flex flex-col flex-nowrap content-center gap-4 p-5 ">
-            <p className="text-center text-gray-600 ">
+          <div className=" flex flex-col flex-nowrap content-center gap-5 p-5 dark:rounded-b-md ">
+            <p className="text-center text-slate-600 dark:text-gray-300 ">
               A weather forecast website with searchable locations and different
               weather metrics
             </p>
-            <div className="flex items-center justify-evenly gap-4 ">
+            <div className="flex items-center justify-evenly gap-5 text-slate-900 dark:text-gray-100 ">
               <h3 className="text-center text-lg">Weather Wise </h3>
               <div className="flex gap-4">
                 <a
@@ -97,7 +96,7 @@ export const MyWork = memo(function MyWork() {
             </div>
           </div>
         </article>
-        <article className="rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md ">
+        <article className="rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 ">
           <img
             className="rounded-md rounded-b-none"
             alt="todo list website home page"
@@ -105,11 +104,11 @@ export const MyWork = memo(function MyWork() {
             srcSet={`${todolistmd} 767w, ${todolistsml} 500w`}
             sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px"
           ></img>
-          <div className=" flex flex-col gap-4 p-6">
-            <p className="text-center text-gray-600">
+          <div className=" flex flex-col gap-5 p-6">
+            <p className="text-center text-slate-600 dark:text-gray-300">
               A feature rich, minimalist designed to-do list
             </p>
-            <div className="flex items-center justify-evenly gap-4">
+            <div className="flex items-center justify-evenly gap-5 text-slate-900 dark:text-gray-100">
               <h3 className="text-center text-lg">To-do list</h3>
               <div className="flex gap-4">
                 <a

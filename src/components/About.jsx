@@ -6,10 +6,12 @@ export const About = memo(function About() {
   return (
     <section
       id="about"
-      className="relative  rounded-md  rounded-b-none border-b-2 border-gray-300/40 p-4 pb-7"
+      className="relative rounded-md  rounded-b-none border-b-2  border-gray-500/80 p-4 pb-7 text-slate-900 dark:border-gray-300/80 dark:text-slate-100"
     >
       <a href="#about">
-        <h2 className="py-2 pt-2 text-center text-3xl font-bold">About me</h2>
+        <h2 className="py-2 pt-2 text-center text-3xl font-bold text-slate-900 dark:text-slate-100">
+          About me
+        </h2>
       </a>
 
       <div className="relative  ">
@@ -18,7 +20,7 @@ export const About = memo(function About() {
           src={portrait}
           alt="portrait of Billy"
         />
-        <p className=" absolute  bottom-3 left-14 rounded-2xl border-2 border-gray-400/70 bg-slate-100/70 p-1  px-2 text-center text-2xl text-black backdrop-blur-3xl ">
+        <p className=" dark:  absolute bottom-3 left-14 rounded-2xl border-2 border-gray-400/70 bg-slate-100/70 p-1  px-2 text-center text-2xl text-black backdrop-blur-3xl dark:bg-slate-600/70 dark:text-gray-100">
           Billy Cummings
         </p>
       </div>
