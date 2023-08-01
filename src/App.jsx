@@ -6,6 +6,7 @@ import "./main.css";
 import { BackToTop } from "./components/BackToTop";
 import { useState } from "react";
 import { useDarkMode } from "./hooks/useDarkMode";
+import { MySkills } from "./components/MySkills";
 
 function App() {
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
@@ -24,7 +25,7 @@ function App() {
       id="mainWrapper"
       className={`${theme} ${
         mobileMenuVisible ? "fixed" : ""
-      } flex min-h-screen w-screen flex-col font-rubik `}
+      } flex min-h-screen w-screen flex-col overflow-x-hidden font-rubik `}
     >
       <Header
         toggleMobileMenu={toggleMobileMenu}
@@ -35,6 +36,7 @@ function App() {
       <main className="flex h-screen flex-1 flex-col items-center gap-6 bg-gray-200/60   px-6 py-9 dark:bg-gray-800">
         <About />
         <MyWork />
+        <MySkills />
         <BackToTop mobileMenuVisible={mobileMenuVisible} />
       </main>
       <Footer />

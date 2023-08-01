@@ -10,8 +10,8 @@ export function Header(props) {
         <MobileMenu toggleMobileMenu={toggleMobileMenu} />
       ) : null}
       <header className="content-left flex  h-20 items-center justify-between bg-gray-300 pl-1 pr-5 text-left shadow-sm outline-slate-950 dark:bg-gray-600">
-        <h1 className="self-center p-4 text-xl text-slate-900 dark:text-slate-100 ">
-          Billy Cummings
+        <h1 className="animate-headerLogoFade self-center p-4 text-4xl font-medium italic text-slate-900 dark:text-slate-100 ">
+          BC
         </h1>
 
         <div className="flex items-center gap-5 text-slate-900 dark:text-slate-100">
@@ -20,8 +20,11 @@ export function Header(props) {
             onClick={toggleTheme}
             className="h-8 w-8"
           >
-            {theme === "light" ? (
-              <Icon className="h-8 w-8" id="light" />
+            {theme === "dark" ? (
+              <Icon
+                className="flex h-8 w-8 items-center justify-center"
+                id="light"
+              />
             ) : (
               <Icon className="h-8 w-8" id="dark" />
             )}

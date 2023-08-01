@@ -10,7 +10,7 @@ export function SocialLinks() {
         rel="noreferrer"
         aria-label="Github profile link"
       >
-        <Icon className="h-8 w-8" id="GithubLogo" />
+        <Icon className="h-9 w-9" id="GithubLogo" />
       </a>
       <a
         href="https://www.linkedin.com/in/william-cummings-jr-b915b2203"
@@ -18,7 +18,7 @@ export function SocialLinks() {
         rel="noreferrer"
         aria-label="Linkedin profile link"
       >
-        <Icon className="h-8 w-8" id={linkedinID} />
+        <Icon className="h-9 w-9" id={linkedinID} />
       </a>
     </article>
   );
