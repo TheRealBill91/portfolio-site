@@ -19,26 +19,26 @@ export const MyWork = memo(function MyWork() {
   const OPEN_IN_NEW_ID = "open-in-new";
   return (
     <section id="myWork" className="p-4">
-      <h2 className="text-black-600 pb-4 text-center text-3xl font-bold text-slate-900 dark:text-gray-100">
+      <h2 className="text-black-600 pb-4 text-center text-3xl font-bold text-slate-900 dark:text-gray-100 sm:text-4xl">
         My Work
       </h2>
 
       <div className="flex flex-col gap-8">
-        <article className=" shadow-slate-400/45  rounded-md  bg-white bg-gradient-to-t from-white from-30% to-gray-400/70 shadow-md dark:rounded-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 ">
+        <article className="shadow-slate-400/45   rounded-md bg-white  bg-gradient-to-t  from-white from-30% to-gray-400/70 shadow-md dark:rounded-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-6 sm:p-6 ">
           <img
-            className="rounded-md rounded-b-none px-0"
+            className="rounded-md rounded-b-none px-0 sm:rounded-b-md"
             src={timelesslg}
             srcSet={`${timelessmd} 767w, ${timelesssml} 500w `}
             sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px "
             alt="watch e-commerce store home page"
           ></img>
-          <div className=" flex flex-col  gap-6 p-6 pt-4 dark:rounded-b-md ">
-            <p className=" text-center text-lg text-slate-600 dark:text-gray-300">
+          <div className=" flex flex-col gap-6 p-6  pt-4 dark:rounded-b-md sm:mt-3 sm:gap-8 ">
+            <p className=" text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl">
               {" "}
               An e-commerce watch store built using Vite & React Router
             </p>
-            <div className="flex items-center justify-between  px-2 text-slate-900 dark:text-gray-100">
-              <h3 className="text-center text-2xl ">Timeless </h3>
+            <div className=" flex items-center justify-between px-2  text-slate-900 dark:text-gray-100 sm:px-6 ">
+              <h3 className="text-center text-2xl sm:text-3xl ">Timeless </h3>
               <div className="flex gap-5">
                 <a
                   className="group"
@@ -48,7 +48,7 @@ export const MyWork = memo(function MyWork() {
                   rel="noreferrer"
                 >
                   <Icon
-                    className=" group-hover: fill-white-400 h-8 w-8 rounded-full  "
+                    className=" group-hover: fill-white-400 h-8 w-8 rounded-full sm:h-10 sm:w-10  "
                     id={GITHUB_SVG_ID}
                   />
                 </a>
@@ -58,22 +58,25 @@ export const MyWork = memo(function MyWork() {
                   rel="noreferrer"
                   href="https://timelesswatches.netlify.app/"
                 >
-                  <Icon className="h-8 w-8" id={OPEN_IN_NEW_ID} />
+                  <Icon
+                    className="h-8 w-8 sm:h-10 sm:w-10"
+                    id={OPEN_IN_NEW_ID}
+                  />
                 </a>
               </div>
             </div>
           </div>
         </article>
-        <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70  shadow-md dark:rounded-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20">
+        <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:rounded-md  dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-6 sm:p-6">
           <img
             src={battleshiplg}
             srcSet={`${battleshipmd} 767w, ${battleshipsml} 500w `}
             sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px "
             alt="battleship game home page"
-            className="rounded-md rounded-b-none"
+            className="rounded-md rounded-b-none sm:rounded-b-md"
           ></img>
-          <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 dark:rounded-b-md ">
-            <p className="text-center text-lg text-slate-600 dark:text-gray-300 ">
+          <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 dark:rounded-b-md sm:mt-3 sm:gap-8 ">
+            <p className="text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl ">
               Classic battleship game built with HTML, CSS, and JavaScript
             </p>
             <div className="flex items-center justify-between gap-6  text-slate-900 dark:text-gray-100 ">
@@ -99,16 +102,16 @@ export const MyWork = memo(function MyWork() {
             </div>
           </div>
         </article>
-        <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70  shadow-md dark:rounded-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20">
+        <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:rounded-md  dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-6 sm:p-6">
           <img
             src={weatherlg}
             srcSet={`${weathermd} 767w, ${weathersml} 500w `}
             sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px "
             alt="weather forecast website home page"
-            className="rounded-md rounded-b-none"
+            className="rounded-md rounded-b-none sm:rounded-b-md"
           ></img>
-          <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 dark:rounded-b-md ">
-            <p className="text-center text-lg text-slate-600 dark:text-gray-300 ">
+          <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 dark:rounded-b-md sm:mt-3 sm:gap-8 ">
+            <p className="text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl ">
               A weather forecast website with searchable locations and different
               weather metrics
             </p>
@@ -135,16 +138,16 @@ export const MyWork = memo(function MyWork() {
             </div>
           </div>
         </article>
-        <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 ">
+        <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-6 sm:p-6 ">
           <img
-            className="rounded-md rounded-b-none"
+            className="rounded-md rounded-b-none sm:rounded-b-md"
             alt="todo list website home page"
             src={todolistlg}
             srcSet={`${todolistmd} 767w, ${todolistsml} 500w`}
             sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px"
           ></img>
-          <div className=" flex flex-col gap-6 p-6">
-            <p className="text-center text-lg text-slate-600 dark:text-gray-300">
+          <div className=" flex flex-col gap-6 p-6 sm:mt-3 sm:gap-8">
+            <p className="text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl ">
               A feature rich, minimalist designed to-do list
             </p>
             <div className="flex items-center justify-between px-1 text-slate-900 dark:text-gray-100">

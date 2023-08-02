@@ -1,9 +1,11 @@
-export function MobileMenuBtn({
-  children,
-  toggleMobileMenu,
-  mobileMenuVisible,
-}) {
-  // const { toggleMobileMenu, mobileMenuVisible } = props;
+export function MobileMenuBtn(props) {
+  const {
+    children,
+    toggleMobileMenu,
+    visible,
+    mobileMenuVisible,
+    onVisibilityChange,
+  } = props;
 
   const closeStyles = mobileMenuVisible ? "z-10 text-gray-700" : "";
 
@@ -11,7 +13,7 @@ export function MobileMenuBtn({
     <button
       title="mobile menu button toggle"
       onClick={toggleMobileMenu}
-      className={`${closeStyles} h-8 w-8 `}
+      className={`${closeStyles}  h-8 w-8 sm:hidden `}
     >
       {children}
     </button>

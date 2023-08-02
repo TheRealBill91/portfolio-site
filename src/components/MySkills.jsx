@@ -10,8 +10,8 @@ export function MySkills() {
         My Skills
       </h2>
       <div className="flex px-8  ">
-        <ul className="flex animate-skillsCarousel justify-between gap-8 px-11 text-center">
-          <li className="flex flex-col items-center gap-1 rounded-md bg-white p-4 px-8 shadow-sm outline-2  outline-black dark:bg-gray-600 dark:text-gray-100 dark:shadow-slate-500/20">
+        <ul className="flex origin-center animate-skillsCarousel justify-between gap-8 px-11 text-center">
+          <li className="flex flex-col items-center gap-1 rounded-md bg-white p-4 px-8 text-slate-900 shadow-sm outline-2  outline-black dark:bg-gray-600 dark:text-gray-100 dark:shadow-slate-500/20">
             <Icon id="HTML5" className="h-10 w-10  pb-2" />
             <p>HTML</p>
           </li>
@@ -30,6 +30,10 @@ export function MySkills() {
           <li className="flex flex-col items-center gap-1 rounded-md bg-white p-4 px-8 text-slate-900 shadow-sm dark:bg-gray-600 dark:text-gray-100 dark:shadow-slate-500/20 ">
             <Icon id="Git" className="h-10 w-10 pb-2" />
             <p className="">Git</p>
+          </li>
+          <li className="flex flex-col items-center gap-1 rounded-md bg-white p-4 px-6 text-slate-900 shadow-sm dark:bg-gray-600 dark:text-gray-100 dark:shadow-slate-500/20 ">
+            <Icon id="Tailwind" className="h-10 w-10 pb-2" />
+            <p className="">Tailwind</p>
           </li>
         </ul>
       </div>
