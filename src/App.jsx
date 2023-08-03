@@ -25,7 +25,7 @@ function App() {
       id="mainWrapper"
       className={`${theme} ${
         mobileMenuVisible ? "fixed" : ""
-      } flex min-h-screen w-screen flex-col overflow-x-hidden font-rubik  `}
+      } flex min-h-screen w-full flex-col overflow-x-hidden font-rubik  `}
     >
       <Header
         toggleMobileMenu={toggleMobileMenu}

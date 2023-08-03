@@ -1,20 +1,24 @@
 import { useState, useEffect } from "react";
 
-export function Fade({ children, visible, themeAnimation }) {
-  const [shouldRender, setRender] = useState(visible);
+export function Fade({ children, show, onVisibilityChange }) {
+  const [shouldRender, setRender] = useState(show);
+
+  console.log(show);
 
   useEffect(() => {
-    if (visible) setRender(true);
-  }, [visible]);
+    if (show) setRender(true);
+  }, [show]);
 
   const onAnimationEnd = () => {
-    if (!visible) setRender(false);
+    if (!show) setRender(false);
   };
 
   return (
     shouldRender && (
       <div
-        className={`${visible ? themeAnimation : ""} `}
+        className={`${
+          show ? "animate-mobileMenuFadeIn " : "animate-mobileMenuFadeOut"
+        } `}
         onAnimationEnd={onAnimationEnd}
       >
         {children}

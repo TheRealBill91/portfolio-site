@@ -18,7 +18,7 @@ export const About = memo(function About() {
           src={portrait}
           alt="portrait of Billy"
         />
-        <p className="  absolute bottom-3 left-14 rounded-2xl border-2 border-gray-400/70 bg-slate-100/70 p-1 px-2  text-center text-2xl text-black backdrop-blur-3xl dark:bg-slate-600/70 dark:text-gray-100 sm:left-20">
+        <p className="  absolute bottom-3 left-14 rounded-2xl border-2 border-gray-400/70 bg-slate-100/70 p-1 px-2  text-center text-2xl text-black backdrop-blur-3xl dark:bg-slate-600/70 dark:text-gray-100 sm:left-20 sm:text-3xl">
           Billy Cummings
         </p>
       </div>

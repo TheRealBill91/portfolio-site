@@ -15,7 +15,7 @@ export function BackToTop({ mobileMenuVisible }) {
         onClick={scrollToTop}
         className={`${
           mobileMenuVisible ? "opacity-0" : ""
-        }   fixed bottom-5 right-5 z-10 rounded-full bg-gray-500 p-2 shadow-md ring-gray-100 ring-slate-900/80 active:ring-2 dark:shadow-slate-500/20  `}
+        }   fixed bottom-5 right-5 z-10 rounded-full bg-gray-500 hover:bg-gray-600 transition-colors p-2 shadow-md ring-gray-900 active:ring-2 dark:shadow-slate-500/20 dark:hover:shadow-lg dark:ring-gray-100  `}
         title="Back To Top"
       >
         <Icon
