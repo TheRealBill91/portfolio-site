@@ -8,7 +8,7 @@ export const About = memo(function About() {
       id="about"
       className="relative rounded-md rounded-b-none   border-b-2  border-gray-500/80 p-4  pb-7 text-slate-900 dark:border-gray-300/80 dark:text-slate-100 sm:flex sm:flex-col sm:items-center"
     >
-      <h2 className="py-3 pt-2 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 sm:text-4xl">
+      <h2 className="py-3 pt-2 text-center text-3xl font-bold text-slate-900 dark:text-gray-100 sm:text-4xl">
         About me
       </h2>
 

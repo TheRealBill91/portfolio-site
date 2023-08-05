@@ -9,7 +9,7 @@ export function MySkills() {
       >
         My Skills
       </h2>
-      <div className="outline-1px flex w-4/5 overflow-hidden rounded-md px-8 pt-2 sm:w-3/4 lg:w-4/5 ">
+      <div className="outline-1px flex w-full overflow-hidden rounded-md px-8 pt-2 sm:w-3/4 lg:w-4/5 ">
         <ul className="flex origin-center animate-skillsCarousel  justify-between gap-8 px-11 text-center sm:animate-skillsCarouselSm lg:animate-skillsCarouselLg">
           <li className="flex flex-col items-center gap-1 rounded-md bg-white p-4 px-8 text-slate-900 shadow-sm   dark:bg-gray-600  dark:text-gray-100 dark:shadow-slate-500/20 sm:gap-2 sm:p-6 sm:px-10">
             <Icon id="HTML5" className="h-10 w-10  pb-2 sm:h-12 sm:w-12" />
