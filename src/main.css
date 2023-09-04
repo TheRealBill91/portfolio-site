@@ -3,20 +3,30 @@
 @tailwind utilities;
 
 @font-face {
-    font-family: "Rubik";
-    src: url("./assets/fonts/Rubik-VariableFont_wght.ttf");
+  font-family: "Rubik";
+  src: url("./assets/fonts/Rubik-VariableFont_wght.ttf");
 }
 
 @layer utilities {
-    .animation-delay-75 {
-        animation-delay: 75ms;
-    }
+  .animation-delay-75 {
+    animation-delay: 75ms;
+  }
 
-    .animation-delay-500 {
-        animation-delay: 500ms;
-    }
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
 
-    .animation-delay-1000 {
-        animation-delay: 1s;
-    }
+  .animation-delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .min-height-mobile-dynamic {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .height-mobile-dynamic {
+    height: 100vh;
+    height: 100dvh;
+  }
 }
