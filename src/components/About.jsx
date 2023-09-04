@@ -30,16 +30,19 @@ export const About = memo(function About() {
     >
       <section
         id="about"
-        className=" relative rounded-md rounded-b-none   border-b-2  border-gray-500/80 p-4  pb-7 text-slate-900 dark:border-gray-300/80 dark:text-slate-100 sm:flex sm:flex-col sm:items-center lg:flex-row lg:px-6 lg:mx-6"
+        className=" relative overflow-x-hidden  rounded-md rounded-b-none   border-b-2  border-gray-500/80 p-4  pb-7 text-slate-900 dark:border-gray-300/80 dark:text-slate-100 sm:flex sm:flex-col sm:items-center lg:mx-6 lg:flex-row lg:px-6 xl:mx-12"
       >
-        <motion.div variants={cardVariants} className=" lg:flex-1 ">
+        <div className=" lg:flex-1 ">
           <motion.div variants={cardVariants}>
             <h2 className="py-3 pt-2 text-center text-3xl font-bold text-slate-900 dark:text-gray-100 sm:text-4xl">
               About me
             </h2>
           </motion.div>
 
-          <motion.div variants={cardVariants} className="lg:flex flex-1 lg:items-center lg:flex-col ">
+          <motion.div
+            variants={cardVariants}
+            className="flex-1 lg:flex lg:flex-col lg:items-center "
+          >
             <div className=" relative mb-2  rounded-3xl   ">
               <img
                 className=" rounded-3xl border-2 border-slate-900 shadow-lg shadow-slate-900/30 hover:scale-100  dark:border-gray-100 dark:shadow-slate-500/20  "
@@ -51,11 +54,11 @@ export const About = memo(function About() {
               </p>
             </div>
           </motion.div>
-        </motion.div>
+        </div>
 
-        <motion.div variants={cardVariants} className=" lg:flex-1">
+        <div className=" lg:flex-1">
           <motion.div variants={cardVariants}>
-            <p className="md:wrap-balance mt-4 pb-3 pt-2 lg:pt-6 text-left text-lg leading-8 sm:px-8 sm:text-xl lg:text-2xl lg:leading-9 sm:leading-8  md:text-center">
+            <p className="md:wrap-balance mt-4 pb-3 pt-2 text-left text-lg leading-8 sm:px-8 sm:text-xl sm:leading-8 md:text-center lg:pt-6 lg:text-2xl  lg:leading-9">
               Hi there! I&apos;m a tech enthusiast with a passion for
               problem-solving and building projects. I&apos;ve been exploring
               web development and love discovering its many aspects. I&apos;m
@@ -63,7 +66,7 @@ export const About = memo(function About() {
             </p>
           </motion.div>
           <SocialLinks />
-        </motion.div>
+        </div>
       </section>
     </motion.div>
   );

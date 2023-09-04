@@ -42,7 +42,7 @@ export const MyWork = memo(function MyWork() {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.5 }}
     >
-      <section id="myWork" className="p-4 xl:p-6 xl:px-10">
+      <section id="myWork" className="xl: p-4 xl:p-6 xl:px-10">
         <motion.div
           variants={cardVariants}
           whileInView="onscreen"
@@ -53,7 +53,7 @@ export const MyWork = memo(function MyWork() {
             My Work
           </h2>
         </motion.div>
-        <div className=" flex  flex-col gap-8 sm:mx-8 lg:grid lg:grid-cols-2">
+        <div className=" flex  flex-col gap-8 sm:mx-8 lg:grid lg:grid-cols-2 xl:mx-10">
           <motion.div
             variants={cardVariants}
             whileInView="onscreen"
@@ -214,7 +214,7 @@ export const MyWork = memo(function MyWork() {
             whileInView="onscreen"
             viewport={{ once: true, amount: 0.5 }}
           >
-            <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-10 sm:p-6 sm:pb-0 sm:pl-0 sm:pr-0 sm:pt-0 lg:mx-0 ">
+            <article className="shadow-slate-400/45 flex h-full flex-1 flex-col rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-10 sm:p-6 sm:pb-0 sm:pl-0 sm:pr-0 sm:pt-0 lg:mx-0 ">
               <img
                 className="rounded-md rounded-b-none sm:rounded-b-md lg:h-[300px] lg:w-full lg:object-cover lg:object-top "
                 alt="todo list website home page"
@@ -222,7 +222,7 @@ export const MyWork = memo(function MyWork() {
                 srcSet={`${todolistmd} 767w, ${todolistsml} 500w`}
                 sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px"
               ></img>
-              <div className=" flex flex-col gap-6 p-6 sm:mt-3 sm:gap-8 lg:h-[176px] lg:justify-around">
+              <div className=" flex flex-1 flex-col gap-6 p-6 sm:mt-3 sm:gap-8 lg:h-[176px] lg:justify-around">
                 <p className="text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl ">
                   A feature rich, minimalist designed to-do list
                 </p>
@@ -249,7 +249,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://therealbill91.github.io/Todo-List/"
                     >
                       <Icon
-                        className="dark:text-gray-10 h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={OPEN_IN_NEW_ID}
                       />
                     </a>
