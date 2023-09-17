@@ -55,7 +55,7 @@ export function Header(props) {
           </button>
 
           {!mobileMenuVisible ? (
-            <NavBar toggleMobileMenu={toggleMobileMenu} />
+            <NavBar toggleMobileMenu={toggleMobileMenu} onBlogPage={onBlogPage} />
           ) : null}
         </div>
         <motion.nav

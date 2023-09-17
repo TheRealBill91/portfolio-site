@@ -23,6 +23,7 @@ export const RouteSwitch = () => {
               index: true,
               element: <BlogHome />,
             },
+           
             {
               path: ":blogId",
               element: <BlogPost />,

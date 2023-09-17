@@ -113,7 +113,7 @@ export const MyWork = memo(function MyWork() {
             initial="offscreen"
             viewport={{ once: true, amount: 0.5 }}
           >
-            <article className="shadow-slate-400/45 rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:rounded-md  dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-10 sm:p-6 sm:pb-0 sm:pl-0 sm:pr-0 sm:pt-0 lg:mx-0">
+            <article className="shadow-slate-400/45 h-full rounded-md bg-white bg-gradient-to-t from-white from-30% to-gray-200/70 shadow-md dark:rounded-md  dark:bg-gray-600 dark:bg-gradient-to-t dark:from-gray-600 dark:to-gray-600 dark:shadow-slate-500/20 sm:mx-10 sm:p-6 sm:pb-0 sm:pl-0 sm:pr-0 sm:pt-0 lg:mx-0">
               <img
                 src={battleshiplg}
                 srcSet={`${battleshipmd} 767w, ${battleshipsml} 500w `}
