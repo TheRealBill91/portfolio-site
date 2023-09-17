@@ -9,12 +9,21 @@ const Path = (props) => (
 );
 
 export function Header(props) {
-  const { mobileMenuVisible, toggleMobileMenu, toggleTheme, theme } = props;
+  const {
+    mobileMenuVisible,
+    toggleMobileMenu,
+    toggleTheme,
+    theme,
+    onBlogPage,
+  } = props;
 
   return (
     <>
       {mobileMenuVisible ? (
-        <MobileMenu toggleMobileMenu={toggleMobileMenu} />
+        <MobileMenu
+          onBlogPage={onBlogPage}
+          toggleMobileMenu={toggleMobileMenu}
+        />
       ) : null}
 
       <header
