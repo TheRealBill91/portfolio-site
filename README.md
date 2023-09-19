@@ -30,3 +30,4 @@ This is a responsive personal portfolio site that showcases my web development s
 - [Google Fonts](https://fonts.google.com/)
 - [Simple Icons](https://simpleicons.org/)
 - [Framer Motion](https://www.framer.com/motion/)
+- [Loading animation](https://davisgitonga.dev/blog/tailwindcss-bouncing-loader)

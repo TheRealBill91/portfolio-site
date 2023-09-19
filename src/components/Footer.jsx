@@ -1,5 +1,5 @@
 import { memo } from "react";
-import { SocialLinks } from "./SocialLinks";
+import { SocialLinks } from "./portfolio/SocialLinks";
 import { motion } from "framer-motion";
 
 const cardVariants = {
@@ -37,7 +37,7 @@ export const Footer = memo(function Footer() {
           </h2>
         </motion.div>
         <motion.div variants={cardVariants}>
-          <p className="lg:mx-2 px-2 text-center text-lg leading-7 sm:mx-6 sm:text-xl">
+          <p className="px-2 text-center text-lg leading-7 sm:mx-6 sm:text-xl lg:mx-2">
             If your interested in working with someone <em>dedicated</em> to web
             development and providing value to customers, please get in touch.
           </p>

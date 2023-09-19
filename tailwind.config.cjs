@@ -30,7 +30,7 @@ export default {
         },
         skillsCarouselLg: {
           "0%": { transform: "translateX(-1400px)" },
-          "100%": { transform: "translateX(800px)" },
+          "100%": { transform: "translateX(950px)" },
         },
         lightThemeFadeOut: {
           "0%": { opacity: "100" },
@@ -45,10 +45,16 @@ export default {
           "100%": { transform: "rotate(180deg)" },
         },
         loadingScreen: {
-          "0%": { transform: "scaleX(0)", opacity: 0,   },
-          "70%": { transform: " scaleX(1) rotate(360deg)  ", opacity: 50,},
-          "75%": {opacity: 100, transform: "scale(1) rotate(360deg) "},
+          "0%": { transform: "scaleX(0)", opacity: 0 },
+          "70%": { transform: " scaleX(1) rotate(360deg)  ", opacity: 50 },
+          "75%": { opacity: 100, transform: "scale(1) rotate(360deg) " },
           "100%": { transform: "scaleX(1)  rotate(360deg)  " },
+        },
+        loader: {
+          to: {
+            opacity: 0.5,
+            transform: "translate3d(0, -1rem, 0)",
+          },
         },
       },
       animation: {
@@ -62,6 +68,7 @@ export default {
         lightThemeFadeIn: "lightThemeFadeIn 1s ease-in 1s 1",
         darkModeToggleRotate: "darkModeToggleRotate 1s ease-in",
         loadingScreen: "loadingScreen 3s ease-in-out 1",
+        bounceLoader: "loader 0.6s infinite alternate",
       },
     },
   },

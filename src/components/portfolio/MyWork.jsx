@@ -1,16 +1,16 @@
-import { Icon } from "./Icon";
-import timelesslg from "../assets/photos/timeless-images/timeless-img-lg.png";
-import timelessmd from "../assets/photos/timeless-images/timeless-img-md.png";
-import timelesssml from "../assets/photos/timeless-images/timeless-img-sml.png";
-import weatherlg from "../assets/photos/weather-forecast-imgs/weather-img-lg.png";
-import weathermd from "../assets/photos/weather-forecast-imgs/weather-img-md.png";
-import weathersml from "../assets/photos/weather-forecast-imgs/weather-img-sml.png";
-import todolistlg from "../assets/photos/todo-list-images/todo-list-lg.png";
-import todolistmd from "../assets/photos/todo-list-images/todo-list-md.png";
-import todolistsml from "../assets/photos/todo-list-images/todo-list-sml.png";
-import battleshiplg from "../assets/photos/battleship-images/battleship-lg.png";
-import battleshipmd from "../assets/photos/battleship-images/battleship-md.png";
-import battleshipsml from "../assets/photos/battleship-images/battleship-sml.png";
+import { Icon } from "../Icon";
+import timelesslg from "../../assets/photos/timeless-images/timeless-img-lg.png";
+import timelessmd from "../../assets/photos/timeless-images/timeless-img-md.png";
+import timelesssml from "../../assets/photos/timeless-images/timeless-img-sml.png";
+import weatherlg from "../../assets/photos/weather-forecast-imgs/weather-img-lg.png";
+import weathermd from "../../assets/photos/weather-forecast-imgs/weather-img-md.png";
+import weathersml from "../../assets/photos/weather-forecast-imgs/weather-img-sml.png";
+import todolistlg from "../../assets/photos/todo-list-images/todo-list-lg.png";
+import todolistmd from "../../assets/photos/todo-list-images/todo-list-md.png";
+import todolistsml from "../../assets/photos/todo-list-images/todo-list-sml.png";
+import battleshiplg from "../../assets/photos/battleship-images/battleship-lg.png";
+import battleshipmd from "../../assets/photos/battleship-images/battleship-md.png";
+import battleshipsml from "../../assets/photos/battleship-images/battleship-sml.png";
 
 import { memo } from "react";
 import { motion } from "framer-motion";
@@ -42,7 +42,7 @@ export const MyWork = memo(function MyWork() {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.5 }}
     >
-      <section id="myWork" className="xl: p-4 xl:p-6 xl:px-10">
+      <section id="myWork" className="xl:p-6 xl:px-10">
         <motion.div
           variants={cardVariants}
           whileInView="onscreen"
@@ -53,7 +53,7 @@ export const MyWork = memo(function MyWork() {
             My Work
           </h2>
         </motion.div>
-        <div className=" flex  flex-col gap-8 sm:mx-8 lg:grid lg:grid-cols-2 xl:mx-10">
+        <div className=" flex  flex-col gap-8 sm:mx-8 lg:grid lg:grid-cols-2 xl:mx-10 xl:max-w-[1250px]">
           <motion.div
             variants={cardVariants}
             whileInView="onscreen"

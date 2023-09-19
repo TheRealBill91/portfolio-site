@@ -1,5 +1,5 @@
 import { SocialLinks } from "./SocialLinks";
-import portrait from "../assets/photos/portrait.jpeg";
+import portrait from "../../assets/photos/portrait.jpeg";
 import { memo } from "react";
 import { motion } from "framer-motion";
 
@@ -30,7 +30,7 @@ export const About = memo(function About() {
     >
       <section
         id="about"
-        className=" relative overflow-x-hidden  rounded-md rounded-b-none   border-b-2  border-gray-500/80 p-4  pb-7 text-slate-900 dark:border-gray-300/80 dark:text-slate-100 sm:flex sm:flex-col sm:items-center lg:mx-6 lg:flex-row lg:px-6 xl:mx-12"
+        className=" relative overflow-x-hidden rounded-md rounded-b-none border-b-2   border-gray-500/80  p-4 pb-7  text-slate-900 dark:border-gray-300/80 dark:text-slate-100 sm:flex sm:flex-col sm:items-center lg:mx-6 lg:flex-row lg:px-6 xl:mx-12 xl:max-w-[1500px]"
       >
         <div className=" lg:flex-1 ">
           <motion.div variants={cardVariants}>

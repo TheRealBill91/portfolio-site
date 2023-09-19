@@ -1,4 +1,4 @@
-import { Icon } from "./Icon";
+import { Icon } from "../Icon";
 import { motion } from "framer-motion";
 
 const cardVariants = {
@@ -63,6 +63,10 @@ export function MySkills() {
             <li className="flex flex-col items-center gap-1 rounded-md bg-white p-4 px-6 text-slate-900 shadow-sm dark:bg-gray-600 dark:text-gray-100 dark:shadow-slate-500/20 sm:gap-2 sm:p-6 sm:px-8 ">
               <Icon id="Tailwind" className="h-10 w-10 pb-2 sm:h-12 sm:w-12" />
               <p className="sm: text-lg">Tailwind</p>
+            </li>
+            <li className="flex flex-col items-center gap-1 rounded-md bg-white p-4 px-6 text-slate-900 shadow-sm dark:bg-gray-600 dark:text-gray-100 dark:shadow-slate-500/20 sm:gap-2 sm:p-6 sm:px-8 ">
+              <Icon id="NodeJS" className="h-10 w-10 pb-2 sm:h-12 sm:w-12" />
+              <p className="sm: text-lg">Node.js</p>
             </li>
           </ul>
         </div>

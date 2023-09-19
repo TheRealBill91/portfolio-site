@@ -4,13 +4,23 @@ import { useState } from "react";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { Outlet, useLocation } from "react-router";
 import { MotionConfig } from "framer-motion";
+import { LoadingAnimation } from "../components/portfolio/LoadingAnimation";
 
 export function MainLayout() {
   const [theme, setTheme] = useDarkMode();
   const [mobileMenuVisible, setMobileMenuVisible] = useState(false);
+  const [loadAnimationStatus, setLoadAnimationStatus] = useState(true);
+  const [auth, setAuth] = useState(false);
+
+  const loadHomePage = () => {
+    setLoadAnimationStatus(false);
+  };
 
   const location = useLocation();
-  const onBlogPage = location.pathname === "/bloghome";
+  // check if bloghome is the base route for displaying
+  // different nav items
+  const pathParts = location.pathname.split("/");
+  const onBlogPage = pathParts[1] === "bloghome";
 
   const toggleMobileMenu = () => {
     setMobileMenuVisible(!mobileMenuVisible);
@@ -22,22 +32,28 @@ export function MainLayout() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div
-        id="mainWrapper"
-        className={`${theme} ${
-          mobileMenuVisible ? "fixed" : ""
-        } min-h-screen  w-full flex-col overflow-hidden font-rubik  `}
-      >
-        <Header
-          toggleMobileMenu={toggleMobileMenu}
-          mobileMenuVisible={mobileMenuVisible}
-          toggleTheme={toggleTheme}
-          theme={theme}
-          onBlogPage={onBlogPage}
-        />
+      {loadAnimationStatus && !onBlogPage ? (
+        <LoadingAnimation theme={theme} loadHomePage={loadHomePage} />
+      ) : (
+        <div
+          id="mainWrapper"
+          className={`${theme} ${
+            mobileMenuVisible ? "fixed" : ""
+          } flex  min-h-screen w-full flex-col overflow-hidden font-rubik  `}
+        >
+          <Header
+            toggleMobileMenu={toggleMobileMenu}
+            mobileMenuVisible={mobileMenuVisible}
+            toggleTheme={toggleTheme}
+            theme={theme}
+            onBlogPage={onBlogPage}
+          />
 
-        <Outlet context={[mobileMenuVisible, onBlogPage, theme]} />
-      </div>
+          <Outlet
+            context={[auth, setAuth, mobileMenuVisible, onBlogPage, theme]}
+          />
+        </div>
+      )}
     </MotionConfig>
   );
 }
