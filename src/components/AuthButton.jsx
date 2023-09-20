@@ -1,10 +1,10 @@
-export function LoginButton({ isSubmitting }) {
+export function AuthButton({ isSubmitting, name }) {
   return (
     <button
       className="inline-flex w-[140px] items-center justify-evenly self-center rounded-lg border-[1px] border-solid border-gray-600 bg-white p-2 text-lg text-gray-600 shadow-sm shadow-gray-100 transition-all hover:border-[1px] hover:border-solid hover:border-black hover:text-black"
       type="submit"
     >
-      Login
+      {name}
       {isSubmitting ? (
         <svg
           className=" mr-3 h-5 w-5 animate-spin bg-white"

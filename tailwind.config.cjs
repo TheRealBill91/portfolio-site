@@ -22,7 +22,7 @@ export default {
         },
         skillsCarousel: {
           "0%": { transform: "translateX(-925px)" },
-          "100%": { transform: "translateX(600px)" },
+          "100%": { transform: "translateX(700px)" },
         },
         skillsCarouselSm: {
           "0%": { transform: "translateX(-1200px)" },

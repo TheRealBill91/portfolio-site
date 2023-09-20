@@ -4,7 +4,7 @@ import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
 import { PortfolioHome } from "../pages/PortfolioHome/PortfolioHome";
 import { BlogHome } from "../pages/BlogHome/BlogHome";
 import { BlogPost } from "../pages/BlogPost/BlogPost";
-import { SignIn } from "../pages/SignIn/SignIn";
+import { SignIn } from "../pages/Auth/SignIn/SignIn";
 
 export const RouteSwitch = () => {
   const router = createBrowserRouter([

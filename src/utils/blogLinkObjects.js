@@ -9,13 +9,13 @@ export const blogLinkObjects = [
     id: self.crypto.randomUUID(),
     name: "Sign in",
     path: "/bloghome/signin",
-    delay: 0.5,
+    delay: 0.3,
   },
   {
     id: self.crypto.randomUUID(),
     path: "/bloghome/signup",
     name: "Sign up",
-    delay: 0.3,
+    delay: 0.5,
   },
 
   {

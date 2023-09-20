@@ -1,20 +1,6 @@
 import { Icon } from "../Icon";
 import { motion } from "framer-motion";
-
-const cardVariants = {
-  offscreen: {
-    y: 100,
-  },
-  onscreen: {
-    y: 0,
-    rotate: 0,
-    transition: {
-      type: "spring",
-      bounce: 0.2,
-      duration: 0.8,
-    },
-  },
-};
+import { socialLinksVariants } from "../../utils/FramerVariants/PortfolioVariants";
 
 export function SocialLinks() {
   const linkedinID = "linkedin";
@@ -25,7 +11,7 @@ export function SocialLinks() {
       viewport={{ once: true, amount: 0.5 }}
     >
       <article className="flex justify-center gap-8 pt-3 sm:py-4 ">
-        <motion.div variants={cardVariants}>
+        <motion.div variants={socialLinksVariants}>
           <a
             href="https://github.com/TheRealBill91"
             target="_blank"
@@ -38,7 +24,7 @@ export function SocialLinks() {
             />
           </a>
         </motion.div>
-        <motion.div variants={cardVariants}>
+        <motion.div variants={socialLinksVariants}>
           <a
             href="https://www.linkedin.com/in/william-cummings-jr-b915b2203"
             target="_blank"

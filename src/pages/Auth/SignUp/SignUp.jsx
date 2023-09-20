@@ -1,24 +1,29 @@
-import { Icon } from "../../components/Icon";
-import { Footer } from "../../components/Footer";
+import { AuthButton } from "../../../components/AuthButton";
+import { Icon } from "../../../components/Icon";
 import { useState } from "react";
-import { redirect, useOutletContext } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import { LoginButton } from "../../components/loginButton";
 
-export function SignIn() {
+export function SignUp() {
+  const [errors, setErrors] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+  });
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ email: "", password: "" });
-  const [auth, setAuth] = useOutletContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  const [error, setError] = useState(null);
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const validateEmail = (email) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
+
+  const validateFullName = (firstName) => {};
 
   const validatePassword = (password) => {
     const strongPasswordRegex =
@@ -52,10 +57,24 @@ export function SignIn() {
 
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
+    switch (name) {
+      case "firstName":
+        setFirstName(value);
+        break;
+      case "lastName":
+        setLastName(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "password":
+        setPassword(value);
+        break;
+      case "confirmPassword":
+        setConfirmPassword(value);
+        break;
+      default:
+        console.log("handleInputChange error");
     }
   };
 
@@ -102,7 +121,7 @@ export function SignIn() {
     <>
       <main className="mb-14 mt-10 flex min-h-screen  flex-1 flex-col items-center  px-7 py-4">
         <h1 className="mb-4 text-center text-2xl font-bold text-gray-700">
-          Sign in with your account
+          Sign Up today
         </h1>
         <div className="flex-col rounded-xl bg-gray-200 px-10 py-6 shadow-md shadow-gray-200 md:min-w-[400px] md:max-w-[550px] md:justify-center md:self-center">
           <form noValidate onSubmit={handleSubmit}>
@@ -138,7 +157,7 @@ export function SignIn() {
                   <span className="text-red-600">{errors.password}</span>
                 )}
               </div>
-              <LoginButton isSubmitting={isSubmitting} />
+              <AuthButton isSubmitting={isSubmitting} name={"Sign up"} />
 
               {isSubmitted && !isComplete && (
                 <span>Login failed, try again</span>

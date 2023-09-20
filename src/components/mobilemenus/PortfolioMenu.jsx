@@ -1,25 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
-
-const itemVariants = {
-  initial: {
-    opacity: 0,
-    y: 8,
-  },
-  exit: {
-    opacity: 0,
-    y: -8,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 1,
-      ease: "easeIn",
-    },
-  },
-};
+import { itemVariants } from "../../utils/FramerVariants/MobileMenuVariants";
 
 export function PortfolioMenu({ toggleMobileMenu }) {
   const [mounted, setMount] = useState(false);
@@ -74,7 +56,11 @@ export function PortfolioMenu({ toggleMobileMenu }) {
         </li>
       </a>{" "}
       <AnimatePresence>
-        <Link onClick={toggleMobileMenu} to="/bloghome">
+        <Link
+          className="border-t border-gray-500 pt-12"
+          onClick={toggleMobileMenu}
+          to="/bloghome"
+        >
           <motion.div
             key={1}
             initial={itemVariants.initial}

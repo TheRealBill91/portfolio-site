@@ -1,25 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import { blogLinkObjects } from "../../utils/blogLinkObjects";
-const itemVariants = {
-  initial: {
-    opacity: 0,
-    y: 8,
-  },
-  exit: {
-    opacity: 0,
-    y: -8,
-  },
-  animate: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 1,
-      ease: "easeIn",
-    },
-  },
-};
+import { itemVariants } from "../../utils/FramerVariants/MobileMenuVariants";
 
 export function BlogMenu({ toggleMobileMenu }) {
   return (
@@ -31,7 +13,7 @@ export function BlogMenu({ toggleMobileMenu }) {
             key={blogLinkObj.id}
             to={blogLinkObj.path}
             className={`${
-              blogLinkObj.path === "/" ? "border-t border-gray-500 pt-8" : ""
+              blogLinkObj.path === "/" ? "border-t border-gray-500 pt-12" : ""
             }`}
           >
             <motion.div

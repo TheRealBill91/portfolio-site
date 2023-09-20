@@ -11,27 +11,10 @@ import todolistsml from "../../assets/photos/todo-list-images/todo-list-sml.png"
 import battleshiplg from "../../assets/photos/battleship-images/battleship-lg.png";
 import battleshipmd from "../../assets/photos/battleship-images/battleship-md.png";
 import battleshipsml from "../../assets/photos/battleship-images/battleship-sml.png";
+import { cardVariants } from "../../utils/FramerVariants/PortfolioVariants";
 
 import { memo } from "react";
 import { motion } from "framer-motion";
-
-const cardVariants = {
-  offscreen: {
-    y: 80,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    rotate: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.2,
-      duration: 1,
-      ease: "ease-in",
-    },
-  },
-};
 
 export const MyWork = memo(function MyWork() {
   const GITHUB_SVG_ID = "GithubLogo";
