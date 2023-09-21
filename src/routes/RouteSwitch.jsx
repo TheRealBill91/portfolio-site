@@ -5,6 +5,7 @@ import { PortfolioHome } from "../pages/PortfolioHome/PortfolioHome";
 import { BlogHome } from "../pages/BlogHome/BlogHome";
 import { BlogPost } from "../pages/BlogPost/BlogPost";
 import { SignIn } from "../pages/Auth/SignIn/SignIn";
+import { SignUp } from "../pages/Auth/SignUp/SignUp";
 
 export const RouteSwitch = () => {
   const router = createBrowserRouter([
@@ -28,7 +29,10 @@ export const RouteSwitch = () => {
               path: "/bloghome/signin",
               element: <SignIn />,
             },
-            {},
+            {
+              path: "/bloghome/signup",
+              element: <SignUp />,
+            },
 
             {
               path: ":blogId",

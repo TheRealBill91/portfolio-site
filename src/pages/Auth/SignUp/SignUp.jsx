@@ -1,6 +1,8 @@
 import { AuthButton } from "../../../components/AuthButton";
 import { Icon } from "../../../components/Icon";
 import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+import { Footer } from "../../../components/Footer";
 
 export function SignUp() {
   const [errors, setErrors] = useState({
@@ -12,6 +14,7 @@ export function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [auth, setAuth] = useOutletContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isComplete, setIsComplete] = useState(false);

@@ -2,13 +2,38 @@ import { createContext, useEffect, useState } from "react";
 import { BlogPreview } from "../../components/blog/BlogPreview";
 import { Footer } from "../../components/Footer";
 import { BounceAnimation } from "../../components/BounceAnimation";
+import { useOutletContext } from "react-router-dom";
 
 export const AuthContext = createContext();
 
 export function BlogHome() {
   const [isLoading, setIsLoading] = useState(true);
   const [blogEntries, setBlogEntries] = useState([]);
+  const [auth, setAuth] = useOutletContext();
   const [error, setError] = useState(null);
+  const [authStatusError, setAuthStatusError] = useState(null);
+
+  useEffect(() => {
+    async function checkAuthStatus() {
+      try {
+        const response = await fetch(
+          "http://localhost:3000/client/users/authstatus",
+          {
+            mode: "cors",
+            method: "GET",
+            credentials: "include",
+          }
+        );
+        if (!response.ok) throw new Error("Problem checking auth status");
+
+        setAuth(true);
+      } catch (error) {
+        setAuthStatusError(error);
+      }
+    }
+
+    checkAuthStatus();
+  }, []);
 
   useEffect(() => {
     const abortController = new AbortController();

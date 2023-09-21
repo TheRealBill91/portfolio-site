@@ -3,13 +3,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { blogLinkObjects } from "../../utils/blogLinkObjects";
 import { itemVariants } from "../../utils/FramerVariants/MobileMenuVariants";
 
-export function BlogMenu({ toggleMobileMenu }) {
+export function BlogMenu({ toggleMobileMenu, auth, signOut }) {
+  let updatedblogLinkObjects;
+  // If user is authenticated, remove the sign in blog link object
+  // otherwise, remove the sign out blog link object
+  if (auth === true) {
+    updatedblogLinkObjects = blogLinkObjects.toSpliced(1, 1);
+  } else {
+    updatedblogLinkObjects = blogLinkObjects.toSpliced(2, 1);
+  }
+
+  console.log(updatedblogLinkObjects);
+
   return (
     <>
       <AnimatePresence>
-        {blogLinkObjects.map((blogLinkObj) => (
+        {updatedblogLinkObjects.map((blogLinkObj) => (
           <Link
-            onClick={toggleMobileMenu}
+            onClick={
+              blogLinkObj.name === "Sign Out" ? signOut : toggleMobileMenu
+            }
             key={blogLinkObj.id}
             to={blogLinkObj.path}
             className={`${

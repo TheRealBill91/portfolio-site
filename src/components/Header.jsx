@@ -15,6 +15,8 @@ export function Header(props) {
     toggleTheme,
     theme,
     onBlogPage,
+    auth,
+    signOut,
   } = props;
 
   return (
@@ -23,6 +25,8 @@ export function Header(props) {
         <MobileMenu
           onBlogPage={onBlogPage}
           toggleMobileMenu={toggleMobileMenu}
+          auth={auth}
+          signOut={signOut}
         />
       ) : null}
 

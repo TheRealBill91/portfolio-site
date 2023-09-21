@@ -1,53 +1,19 @@
 import { Icon } from "../../../components/Icon";
 import { Footer } from "../../../components/Footer";
 import { useState } from "react";
-import { redirect, useOutletContext } from "react-router-dom";
+import { Navigate, useNavigate, useOutletContext } from "react-router-dom";
 import { AuthButton } from "../../../components/AuthButton";
 
 export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({ email: "", password: "" });
+  const [error, setError] = useState({ loginError: "" });
   const [auth, setAuth] = useOutletContext();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
-  const [error, setError] = useState(null);
 
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
-
-  const validatePassword = (password) => {
-    const strongPasswordRegex =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return strongPasswordRegex.test(password);
-  };
-
-  const validateForm = () => {
-    let formValid = true;
-    let emailError;
-    let passwordError;
-    // Check email validity
-    if (!validateEmail(email)) {
-      formValid = false;
-      emailError = "Invalid email address";
-    } else {
-      emailError = "";
-    }
-
-    /*   if (!validatePassword(password)) {
-      formValid = false;
-      passwordError =
-        "Password must include: 8 characters, 1 uppercase letter, 1 number, 1 special character.";
-    } else {
-      passwordError = "";
-    } */
-
-    setErrors({ email: emailError, password: passwordError });
-    return formValid;
-  };
+  const navigate = useNavigate();
 
   const handleInputChange = (evt) => {
     const { name, value } = evt.target;
@@ -62,12 +28,7 @@ export function SignIn() {
     event.preventDefault();
     let userIsAuth;
 
-    const formValid = validateForm();
-    if (!formValid) {
-      return;
-    }
     setIsSubmitting(true);
-    console.log("getting here?");
     try {
       const response = await fetch("http://localhost:3000/client/auth/login", {
         mode: "cors",
@@ -76,23 +37,23 @@ export function SignIn() {
         body: JSON.stringify({ email, password }),
         credentials: "include",
       });
-      console.log(response);
 
       if (response.ok) {
         setIsComplete(true);
         userIsAuth = true;
         setAuth(userIsAuth);
       } else {
+        setPassword("");
         setAuth(false);
-        throw new Error("Login failed");
+        throw new Error("Email and/or password is incorrect");
       }
     } catch (error) {
-      setError(error);
+      setError({ loginError: error.message });
     } finally {
       setIsSubmitted(true);
       setIsSubmitting(false);
-      if (userIsAuth) {
-        redirect("/bloghome");
+      if (userIsAuth === true) {
+        navigate("/bloghome");
       }
     }
   };
@@ -104,7 +65,7 @@ export function SignIn() {
           Sign in with your account
         </h1>
         <div className="flex-col rounded-xl bg-gray-200 px-10 py-6 shadow-md shadow-gray-200 md:min-w-[400px] md:max-w-[550px] md:justify-center md:self-center">
-          <form noValidate onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3 flex flex-col gap-4">
               <div className="mx-2 flex flex-col gap-2 text-gray-700">
                 <label htmlFor="email">Email</label>
@@ -117,9 +78,6 @@ export function SignIn() {
                   type="email"
                   required
                 />
-                {errors.email && (
-                  <span className="text-red-600">{errors.email}</span>
-                )}
               </div>
 
               <div className="mx-2 mb-3 flex flex-col gap-2 text-gray-700">
@@ -133,15 +91,13 @@ export function SignIn() {
                   type="password"
                   required
                 />
-                {errors.password && (
-                  <span className="text-red-600">{errors.password}</span>
-                )}
               </div>
-              <AuthButton isSubmitting={isSubmitting} name={"Sign in"} />
-
-              {isSubmitted && !isComplete && (
-                <span>Login failed, try again</span>
+              {error.loginError && (
+                <span className="text-center text-red-600">
+                  {error.loginError}
+                </span>
               )}
+              <AuthButton isSubmitting={isSubmitting} name={"Sign in"} />
             </div>
           </form>
           {/* line pass through effect inspired by The
