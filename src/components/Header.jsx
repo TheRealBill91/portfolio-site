@@ -31,7 +31,7 @@ export function Header(props) {
       ) : null}
 
       <header className={` bg-gray-300 shadow-sm dark:bg-gray-600 `}>
-        <div className="content-left md:h-18 relative flex  h-20  items-center justify-between border-none   pl-1 pr-5  text-left  outline-none  sm:h-24 sm:pr-7  md:py-2 lg:mx-12">
+        <div className="content-left md:h-18 relative flex  h-20  items-center justify-between border-none   pl-1   text-left  outline-none  sm:h-24 md:px-10 md:py-2  lg:px-12 ">
           <h1 className=" self-center p-4 text-4xl font-medium italic text-slate-900 dark:text-slate-100 sm:text-5xl ">
             BC
           </h1>

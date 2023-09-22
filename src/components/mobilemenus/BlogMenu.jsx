@@ -13,8 +13,6 @@ export function BlogMenu({ toggleMobileMenu, auth, signOut }) {
     updatedblogLinkObjects = blogLinkObjects.toSpliced(2, 1);
   }
 
-  console.log(updatedblogLinkObjects);
-
   return (
     <>
       <AnimatePresence>
@@ -26,7 +24,9 @@ export function BlogMenu({ toggleMobileMenu, auth, signOut }) {
             key={blogLinkObj.id}
             to={blogLinkObj.path}
             className={`${
-              blogLinkObj.path === "/" ? "border-t border-gray-500 pt-12" : ""
+              blogLinkObj.path === "/"
+                ? "border-t border-gray-500 pt-12 dark:border-slate-100"
+                : ""
             }`}
           >
             <motion.div
