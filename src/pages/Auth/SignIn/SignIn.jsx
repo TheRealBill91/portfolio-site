@@ -1,17 +1,25 @@
 import { Icon } from "../../../components/Icon";
 import { Footer } from "../../../components/Footer";
-import { useState } from "react";
-import { Navigate, useNavigate, useOutletContext } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthButton } from "../../../components/AuthButton";
+import { ToastContext } from "../../../contexts/ToastContext";
+import { AuthContext } from "../../../contexts/AuthContext";
+
+const STATUS = {
+  IDLE: "IDLE",
+  SUBMITTING: "SUBMITTING",
+  SUBMITTED: "SUBMITTED",
+  COMPLETED: "COMPLETED",
+};
 
 export function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState({ loginError: "" });
-  const [auth, setAuth] = useOutletContext();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
+  const { setAuth } = useContext(AuthContext);
+  const { addToast } = useContext(ToastContext);
+  const [status, setStatus] = useState(STATUS.IDLE);
 
   const navigate = useNavigate();
 
@@ -28,7 +36,7 @@ export function SignIn() {
     event.preventDefault();
     let userIsAuth;
 
-    setIsSubmitting(true);
+    setStatus(STATUS.SUBMITTING);
     try {
       const response = await fetch("http://localhost:3000/client/auth/login", {
         mode: "cors",
@@ -39,19 +47,19 @@ export function SignIn() {
       });
 
       if (response.ok) {
-        setIsComplete(true);
+        addToast("Logged in successfully");
+        setStatus(STATUS.COMPLETED);
         userIsAuth = true;
         setAuth(userIsAuth);
       } else {
+        setStatus(STATUS.SUBMITTED);
         setPassword("");
         setAuth(false);
-        throw new Error("Email and/or password is incorrect");
+        throw await response.json();
       }
     } catch (error) {
       setError({ loginError: error.message });
     } finally {
-      setIsSubmitted(true);
-      setIsSubmitting(false);
       if (userIsAuth === true) {
         navigate("/bloghome");
       }
@@ -60,7 +68,7 @@ export function SignIn() {
 
   return (
     <>
-      <main className=" flex min-h-screen flex-1 flex-col items-center justify-start px-7  py-4 dark:bg-gray-800">
+      <main className=" flex min-h-screen flex-1 flex-col items-center justify-start bg-white px-7  py-4 dark:bg-gray-800">
         <div className="mt-10">
           <h1 className="mb-4  text-center text-2xl font-bold text-gray-800 dark:text-slate-100">
             Sign in with your account
@@ -112,11 +120,11 @@ export function SignIn() {
                   </span>
                 </div>
                 {error.loginError && (
-                  <span className="text-center text-red-600">
+                  <span className="px-1 pb-3 text-center text-red-700">
                     {error.loginError}
                   </span>
                 )}
-                <AuthButton isSubmitting={isSubmitting} name={"Sign in"} />
+                <AuthButton status={status} name={"Sign in"} />
               </div>
             </form>
             {/* line pass through effect inspired by The

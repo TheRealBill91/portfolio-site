@@ -1,8 +1,11 @@
 import { MobileMenuBtn } from "./MobileMenuBtn";
 import { MobileMenu } from "./mobilemenus/MobileMenu";
 import { Icon } from "./Icon";
+import { useContext } from "react";
+import { ToastContext } from "../contexts/ToastContext";
 import { NavBar } from "./NavBar";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 const Path = (props) => (
   <motion.path fill="grey" strokeWidth="3.3" strokeLinecap="round" {...props} />
@@ -16,8 +19,33 @@ export function Header(props) {
     theme,
     onBlogPage,
     auth,
-    signOut,
+    setAuth,
   } = props;
+
+  const navigate = useNavigate();
+  const { addToast } = useContext(ToastContext);
+
+  const signOut = async () => {
+    toggleMobileMenu();
+    try {
+      console.log("heree?");
+      const response = await fetch("http://localhost:3000/client/auth/logout", {
+        mode: "cors",
+        headers: { "Content-Type": "application/json" },
+        method: "POST",
+        credentials: "include",
+      });
+      if (response.ok) {
+        addToast("Log out successful");
+        setAuth(false);
+        navigate("/bloghome");
+      } else {
+        throw response;
+      }
+    } catch (error) {
+      // setSignOutError(error);
+    }
+  };
 
   return (
     <>

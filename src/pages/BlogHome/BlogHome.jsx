@@ -1,79 +1,61 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { BlogPreview } from "../../components/blog/BlogPreview";
 import { Footer } from "../../components/Footer";
 import { BounceAnimation } from "../../components/BounceAnimation";
-import { useOutletContext } from "react-router-dom";
+import { useLoaderData, useOutletContext } from "react-router-dom";
+import { Toaster, toast } from "sonner";
+import { ToastContext } from "../../contexts/ToastContext";
 
-export const AuthContext = createContext();
+import "../../main.css";
 
 export function BlogHome() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [blogEntries, setBlogEntries] = useState([]);
-  const [auth, setAuth] = useOutletContext();
+  const [auth, setAuth, onBlogPage, theme] = useOutletContext();
+  const { toasts, setToasts } = useContext(ToastContext);
   const [error, setError] = useState(null);
-  const [authStatusError, setAuthStatusError] = useState(null);
+  const blogEntries = useLoaderData();
+
+  const backgroundColor =
+    theme === "dark" ? "rgb(75 85 99)" : "rgb(248 250 252)";
+  const textColor = theme === "dark" ? "#F1F5F9" : "#0F172A";
 
   useEffect(() => {
-    async function checkAuthStatus() {
-      try {
-        const response = await fetch(
-          "http://localhost:3000/client/users/authstatus",
-          {
-            mode: "cors",
-            method: "GET",
-            credentials: "include",
-          }
-        );
-        if (!response.ok) throw new Error("Problem checking auth status");
-
-        setAuth(true);
-      } catch (error) {
-        setAuthStatusError(error);
-      }
+    if (toasts.length > 0) {
+      toast.success(toasts.at(-1));
+      setToasts([]);
     }
-
-    checkAuthStatus();
-  }, []);
-
-  useEffect(() => {
-    const abortController = new AbortController();
-
-    async function fetchBlogEntries() {
-      setIsLoading(true);
-      try {
-        const resp = await fetch(`http://localhost:3000/client/blog_entries`, {
-          signal: abortController.signal,
-          mode: "cors",
-        });
-        if (!resp.ok) throw resp;
-        setBlogEntries(await resp.json());
-      } catch (err) {
-        if (!err.name === "AbortError") {
-          setError(err);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    fetchBlogEntries();
-
-    return () => abortController.abort();
-  }, []);
-
-  if (isLoading) return <BounceAnimation />;
-  if (error) throw error;
+  }, [toasts]);
 
   return (
     <>
-      <main className="flex min-h-screen flex-col gap-5 bg-gray-200/60 px-6 py-9 dark:bg-gray-800">
+      <main className=" flex min-h-screen flex-col gap-6 bg-gray-200/60 px-6 py-9 text-slate-900 dark:bg-gray-800">
         <h2 className="text-center text-3xl font-bold capitalize dark:text-slate-100">
           blog entries
         </h2>
-        <section className="grid flex-1 auto-rows-max grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-6  px-4  dark:text-slate-100">
-          {blogEntries.map((blogEntry) => (
-            <BlogPreview key={blogEntry._id} blogEntry={blogEntry} />
-          ))}
+        <section
+          className={`grid flex-1 auto-rows-max ${
+            blogEntries.length > 0
+              ? "grid-cols-[repeat(auto-fill,minmax(250px,1fr))]"
+              : ""
+          } gap-6  px-4  dark:text-slate-100`}
+        >
+          {blogEntries.length > 0 ? (
+            blogEntries.map((blogEntry) => (
+              <BlogPreview key={blogEntry._id} blogEntry={blogEntry} />
+            ))
+          ) : (
+            <p className="text-center text-lg">No blog entries yet...</p>
+          )}
         </section>
+        <Toaster
+          toastOptions={{
+            style: {
+              backgroundColor: `${backgroundColor}`,
+              color: `${textColor}`,
+              border: "none",
+            },
+            duration: 5000,
+          }}
+        />
       </main>
       <Footer />
     </>

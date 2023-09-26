@@ -1,108 +1,105 @@
 import { AuthButton } from "../../../components/AuthButton";
 import { Icon } from "../../../components/Icon";
-import { useState } from "react";
-import { useOutletContext, redirect } from "react-router-dom";
+import { useContext, useState } from "react";
+import { useOutletContext, useNavigate, useNavigation } from "react-router-dom";
 import { Footer } from "../../../components/Footer";
+import { ToastContext } from "../../../contexts/ToastContext";
+
+const STATUS = {
+  IDLE: "IDLE",
+  SUBMITTING: "SUBMITTING",
+  SUBMITTED: "SUBMITTED",
+  COMPLETED: "COMPLETED",
+};
 
 export function SignUp() {
-  const [submitError, setSubmitError] = useState(null); // for testing, do not render in DOM
-  const [clientErrors, setClientErrors] = useState({
-    username: "",
-    email: "",
-    password: "",
-    passwordConfirmation: "",
-  });
-
-  const [passwordType, setPasswordType] = useState("password");
-
-  const passwordEyeId = passwordType === "password" ? "Eye" : "Eye-slash";
+  const [clientErrors, setClientErrors] = useState({});
 
   const [serverErrors, setServerErrors] = useState();
 
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [auth, setAuth] = useOutletContext();
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isComplete, setIsComplete] = useState(false);
+  const [status, setStatus] = useState(STATUS.IDLE);
+  const { addToast } = useContext(ToastContext);
+
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
 
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
+  const navigate = useNavigate();
 
   const validateUserName = (username) => {
     if (username.length < 1) {
-      return false;
+      return "Username must be between 1 and 14 characters";
     } else if (username.length > 14) {
-      return false;
+      return "Username must be between 1 and 14 characters";
     }
-    return true;
+    return null;
+  };
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailValid = regex.test(email);
+    if (!emailValid) {
+      return "Please enter a valid email address in the format: example@domain.com.";
+    } else {
+      return null;
+    }
   };
 
   const validatePassword = (password) => {
     const strongPasswordRegex =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return strongPasswordRegex.test(password);
+    const passwordValid = strongPasswordRegex.test(password);
+    if (!passwordValid) {
+      return "Your password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character such as @$!%*?&.";
+    } else {
+      return null;
+    }
   };
 
   const passwordsMatch = () => {
     if (password !== passwordConfirmation) {
-      return false;
+      return "Passwords do not match";
     } else if (password === passwordConfirmation) {
-      return true;
+      return null;
     }
   };
 
   const validateForm = () => {
-    let formValid = true;
-    let usernameError;
-    let emailError;
-    let passwordError;
-    let passwordConfirmationError;
+    const clientErrors = {};
 
-    if (!validateUserName(username)) {
-      formValid = false;
-      usernameError = "Username must be between 1 and 14 characters";
-    } else {
-      usernameError = "";
+    const userNameError = validateUserName(username);
+    if (userNameError) {
+      clientErrors.username = userNameError;
     }
 
-    if (!validateEmail(email)) {
-      formValid = false;
-      emailError = "Email must be in format of email@exmaple.com";
-    } else {
-      emailError = "";
+    const emailError = validateEmail(email);
+    if (emailError) {
+      clientErrors.email = emailError;
     }
 
-    if (!validatePassword(password)) {
-      formValid = false;
-      passwordError =
-        "Password must include: 8 characters, 1 uppercase letter, 1 number, 1 special character.";
-    } else {
-      passwordError = "";
+    const passwordError = validatePassword(password);
+    if (passwordError) {
+      clientErrors.password = passwordError;
     }
 
-    if (!validatePassword(passwordConfirmation)) {
-      formValid = false;
-      passwordConfirmationError =
-        "Password must include: 8 characters, 1 uppercase letter, 1 number, 1 special character.";
-    } else if (!passwordsMatch()) {
-      formValid = false;
-      passwordConfirmationError = "Password's do not match";
-    } else {
-      passwordConfirmationError = "";
+    const passwordConfirmationError = validatePassword(passwordConfirmation);
+    if (passwordConfirmationError) {
+      clientErrors.passwordConfirmation = passwordError;
     }
 
-    setClientErrors({
-      username: usernameError,
-      email: emailError,
-      password: passwordError,
-      passwordConfirmation: passwordConfirmationError,
-    });
-    return formValid;
+    const passwordsMatchError = passwordsMatch();
+    if (passwordsMatchError) {
+      clientErrors.passwordsMatch = passwordsMatchError;
+    }
+
+    setClientErrors(clientErrors);
+    if (Object.keys(clientErrors).length > 0) {
+      return false;
+    } else {
+      return true;
+    }
   };
 
   const handleInputChange = (evt) => {
@@ -137,10 +134,17 @@ export function SignUp() {
     let userIsAuth;
 
     const formValid = validateForm();
+
     if (!formValid) {
       return;
     }
-    setIsSubmitting(true);
+
+    if (status === "SUBMITTING") {
+      console.log("reached this part, good");
+      return;
+    }
+
+    setStatus(STATUS.SUBMITTING);
     try {
       const response = await fetch(
         "http://localhost:3000/client/users/signup",
@@ -158,24 +162,26 @@ export function SignUp() {
         }
       );
 
+      const serverErrors = await response.json();
+
       if (response.ok) {
-        setIsComplete(true);
+        addToast("Sign up successful");
+        setStatus(STATUS.COMPLETED);
+        // setIsComplete(true);
         userIsAuth = true;
         setAuth(userIsAuth);
       } else {
-        const serverErrors = await response.json();
-        const processedServerErrors = processServerErrors(serverErrors.errors);
-        setServerErrors(processedServerErrors);
+        setStatus(STATUS.SUBMITTED);
+
         setAuth(false);
-        throw new Error("Login failed");
+        throw serverErrors;
       }
-    } catch (error) {
-      setSubmitError(error);
+    } catch (serverErrors) {
+      const processedServerErrors = processServerErrors(serverErrors.errors);
+      setServerErrors(processedServerErrors);
     } finally {
-      setIsSubmitted(true);
-      setIsSubmitting(false);
       if (userIsAuth) {
-        redirect("/bloghome");
+        navigate("/bloghome");
       }
     }
   };
@@ -270,21 +276,24 @@ export function SignUp() {
                 </div>
                 <div className="mx-2 mb-3 flex flex-col gap-2 text-gray-700">
                   <label htmlFor="passwordConfirmation">Confirm Password</label>
-                  <div className=" relative w-full rounded-md bg-white  ">
-                    <input
-                      className="w-full rounded-md border  px-2 py-2 pr-8 focus:border focus:border-black "
-                      name="passwordConfirmation"
-                      value={passwordConfirmation}
-                      onChange={handleInputChange}
-                      id="passwordConfirmation"
-                      type={passwordType}
-                      required
-                    />
-                  </div>
+                  <input
+                    className="w-full rounded-md border  px-2 py-2 pr-8 focus:border focus:border-black "
+                    name="passwordConfirmation"
+                    value={passwordConfirmation}
+                    onChange={handleInputChange}
+                    id="passwordConfirmation"
+                    type="password"
+                    required
+                  />
 
                   {clientErrors.passwordConfirmation && (
                     <span className="text-red-600">
                       {clientErrors.passwordConfirmation}
+                    </span>
+                  )}
+                  {clientErrors.passwordsMatch && (
+                    <span className="text-red-600">
+                      {clientErrors.passwordsMatch}
                     </span>
                   )}
                   {serverErrors &&
@@ -296,12 +305,7 @@ export function SignUp() {
                       );
                     })}
                 </div>
-                <AuthButton
-                  isSubmitting={isSubmitting}
-                  handleSubmit={handleSubmit}
-                  aria-disabled={isSubmitting}
-                  name={"Sign up"}
-                />
+                <AuthButton status={status} name={"Sign up"} />
               </div>
             </form>
             {/* line pass through effect inspired by The

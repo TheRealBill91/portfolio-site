@@ -6,6 +6,14 @@ import { BlogHome } from "../pages/BlogHome/BlogHome";
 import { BlogPost } from "../pages/BlogPost/BlogPost";
 import { SignIn } from "../pages/Auth/SignIn/SignIn";
 import { SignUp } from "../pages/Auth/SignUp/SignUp";
+import { AuthProvider } from "../contexts/AuthContext";
+
+async function blogEntriesLoader() {
+  const blogEntries = await fetch(`http://localhost:3000/client/blog_entries`, {
+    mode: "cors",
+  });
+  return await blogEntries.json();
+}
 
 export const RouteSwitch = () => {
   const router = createBrowserRouter([
@@ -24,6 +32,7 @@ export const RouteSwitch = () => {
             {
               index: true,
               element: <BlogHome />,
+              loader: blogEntriesLoader,
             },
             {
               path: "/bloghome/signin",
@@ -44,5 +53,9 @@ export const RouteSwitch = () => {
     },
   ]);
 
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
+  );
 };

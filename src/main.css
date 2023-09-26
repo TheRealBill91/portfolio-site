@@ -7,6 +7,16 @@
   src: url("./assets/fonts/Rubik-VariableFont_wght.ttf");
 }
 
+.toastStyle {
+  @apply bg-gray-900 text-slate-900 dark:bg-gray-600 dark:text-slate-100;
+}
+
+.toast {
+  color: red;
+}
+
+
+
 @layer utilities {
   .animation-delay-75 {
     animation-delay: 75ms;

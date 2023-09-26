@@ -28,6 +28,10 @@ export function BlogMenu({ toggleMobileMenu, auth, signOut }) {
                 ? "border-t border-gray-500 pt-12 dark:border-slate-100"
                 : ""
             }`}
+            state={{
+              message: "Signout successful",
+            }}
+            replace={true}
           >
             <motion.div
               key={blogLinkObj.id}
