@@ -2,7 +2,11 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { BlogPreview } from "../../components/blog/BlogPreview";
 import { Footer } from "../../components/Footer";
 import { BounceAnimation } from "../../components/BounceAnimation";
-import { useLoaderData, useOutletContext } from "react-router-dom";
+import {
+  useLoaderData,
+  useOutletContext,
+  useRouteLoaderData,
+} from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { ToastContext } from "../../contexts/ToastContext";
 
@@ -36,7 +40,7 @@ export function BlogHome() {
             blogEntries.length > 0
               ? "grid-cols-[repeat(auto-fill,minmax(250px,1fr))]"
               : ""
-          } gap-6  px-4  dark:text-slate-100`}
+          } gap-6 px-4  dark:text-slate-100  md:gap-10`}
         >
           {blogEntries.length > 0 ? (
             blogEntries.map((blogEntry) => (

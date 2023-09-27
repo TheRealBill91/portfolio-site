@@ -3,7 +3,7 @@ import { MobileMenu } from "./mobilemenus/MobileMenu";
 import { Icon } from "./Icon";
 import { useContext } from "react";
 import { ToastContext } from "../contexts/ToastContext";
-import { NavBar } from "./NavBar";
+import { NavBar } from "./NavBar/NavBar";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
@@ -28,7 +28,6 @@ export function Header(props) {
   const signOut = async () => {
     toggleMobileMenu();
     try {
-      console.log("heree?");
       const response = await fetch("http://localhost:3000/client/auth/logout", {
         mode: "cors",
         headers: { "Content-Type": "application/json" },

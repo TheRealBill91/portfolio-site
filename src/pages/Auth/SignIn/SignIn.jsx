@@ -5,13 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthButton } from "../../../components/AuthButton";
 import { ToastContext } from "../../../contexts/ToastContext";
 import { AuthContext } from "../../../contexts/AuthContext";
-
-const STATUS = {
-  IDLE: "IDLE",
-  SUBMITTING: "SUBMITTING",
-  SUBMITTED: "SUBMITTED",
-  COMPLETED: "COMPLETED",
-};
+import { STATUS } from "../../../utils/enums/formStatus";
 
 export function SignIn() {
   const [email, setEmail] = useState("");
@@ -68,7 +62,7 @@ export function SignIn() {
 
   return (
     <>
-      <main className=" flex min-h-screen flex-1 flex-col items-center justify-start bg-white px-7  py-4 dark:bg-gray-800">
+      <main className=" flex min-h-screen flex-1 flex-col items-center justify-start bg-white px-7  py-8 dark:bg-gray-800">
         <div className="mt-10">
           <h1 className="mb-4  text-center text-2xl font-bold text-gray-800 dark:text-slate-100">
             Sign in with your account

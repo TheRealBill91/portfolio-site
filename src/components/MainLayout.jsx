@@ -1,6 +1,6 @@
 import { Header } from "./Header";
 import "../main.css";
-import { useContext, useState } from "react";
+import { useState, useContext } from "react";
 import { useDarkMode } from "../hooks/useDarkMode";
 import { Outlet, useLocation, useNavigation } from "react-router";
 import { MotionConfig } from "framer-motion";
@@ -44,7 +44,7 @@ export function MainLayout() {
           id="mainWrapper"
           className={`${theme} ${
             mobileMenuVisible ? "fixed" : ""
-          } flex  min-h-screen w-full flex-col overflow-hidden font-rubik  `}
+          } sm:overflow-unset  flex min-h-screen w-full flex-col overflow-hidden font-rubik  `}
         >
           <ToastProvider>
             <Header
