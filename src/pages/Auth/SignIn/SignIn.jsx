@@ -1,74 +1,28 @@
-import { Icon } from "../../../components/Icon";
 import { Footer } from "../../../components/Footer";
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { Form, useActionData, useNavigation, Navigate } from "react-router-dom";
 import { AuthButton } from "../../../components/AuthButton";
-import { ToastContext } from "../../../contexts/ToastContext";
 import { AuthContext } from "../../../contexts/AuthContext";
-import { STATUS } from "../../../utils/enums/formStatus";
 
 export function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState({ loginError: "" });
-  const { setAuth } = useContext(AuthContext);
-  const { addToast } = useContext(ToastContext);
-  const [status, setStatus] = useState(STATUS.IDLE);
+  const { auth } = useContext(AuthContext);
 
-  const navigate = useNavigate();
+  const navigation = useNavigation();
+  const submitting = navigation.state === "submitting";
 
-  const handleInputChange = (evt) => {
-    const { name, value } = evt.target;
-    if (name === "email") {
-      setEmail(value);
-    } else if (name === "password") {
-      setPassword(value);
-    }
-  };
+  const serverError = useActionData();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    let userIsAuth;
-
-    setStatus(STATUS.SUBMITTING);
-    try {
-      const response = await fetch("http://localhost:3000/client/auth/login", {
-        mode: "cors",
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-        credentials: "include",
-      });
-
-      if (response.ok) {
-        addToast("Logged in successfully");
-        setStatus(STATUS.COMPLETED);
-        userIsAuth = true;
-        setAuth(userIsAuth);
-      } else {
-        setStatus(STATUS.SUBMITTED);
-        setPassword("");
-        setAuth(false);
-        throw await response.json();
-      }
-    } catch (error) {
-      setError({ loginError: error.message });
-    } finally {
-      if (userIsAuth === true) {
-        navigate("/bloghome");
-      }
-    }
-  };
 
   return (
     <>
+    {auth === true && <Navigate to={"/bloghome"} />}
       <main className=" flex min-h-screen flex-1 flex-col items-center justify-start bg-white px-7  py-8 dark:bg-gray-800">
         <div className="mt-10">
           <h1 className="mb-4  text-center text-2xl font-bold text-gray-800 dark:text-slate-100">
             Sign in with your account
           </h1>
           <div className="flex-col rounded-xl bg-gray-200 px-10 py-6 shadow-md shadow-gray-200 md:min-w-[400px] md:max-w-[550px] md:justify-center md:self-center">
-            <form onSubmit={handleSubmit}>
+            <Form method="POST" action="/bloghome/signin">
               <div className="mb-3 flex flex-col gap-4">
                 <div className="mx-2 flex flex-col gap-2 text-gray-700">
                   <label
@@ -80,8 +34,7 @@ export function SignIn() {
                   <input
                     className="peer w-full rounded-md p-2  [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-700"
                     name="email"
-                    value={email}
-                    onChange={handleInputChange}
+                
                     placeholder="username@example.com"
                     type="email"
                     required
@@ -101,8 +54,7 @@ export function SignIn() {
                   <input
                     className=" peer w-full rounded-md p-2  [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-700   "
                     name="password"
-                    value={password}
-                    onChange={handleInputChange}
+               
                     id="password"
                     type="password"
                     placeholder=""
@@ -113,30 +65,14 @@ export function SignIn() {
                     Please enter your password
                   </span>
                 </div>
-                {error.loginError && (
+                {serverError && (
                   <span className="px-1 pb-3 text-center text-red-700">
-                    {error.loginError}
+                    {serverError.message}
                   </span>
                 )}
-                <AuthButton status={status} name={"Sign in"} />
+                <AuthButton submitting={submitting} name={"Sign in"} />
               </div>
-            </form>
-            {/* line pass through effect inspired by The
-          Odin Project Sign In form */}
-            <div className="relative my-6">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-400"></div>
-              </div>
-              <div className="relative flex justify-center text-sm capitalize">
-                <p className=" bg-gray-200 px-3 text-gray-700">or sigin with</p>
-              </div>
-            </div>
-            <div className="mt-4 flex items-center justify-center">
-              <button className="flex w-[140px] items-center gap-4 rounded-lg border border-gray-600 bg-white p-2 px-3 text-lg shadow-sm">
-                <Icon id="Google" className="h-6 w-6 text-gray-700" />
-                Sign In
-              </button>
-            </div>
+            </Form>
           </div>
         </div>
       </main>

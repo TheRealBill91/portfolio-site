@@ -2,9 +2,12 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { blogLinkObjects } from "../../utils/blogLinkObjects";
 import { itemVariants } from "../../utils/FramerVariants/MobileMenuVariants";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
-export function BlogMenu({ toggleMobileMenu, auth, signOut }) {
+export function BlogMenu({ toggleMobileMenu, signOut }) {
   let updatedblogLinkObjects;
+  const { auth } = useContext(AuthContext);
   // If user is authenticated, remove the sign in blog link object
   // otherwise, remove the sign out blog link object
   if (auth === true) {

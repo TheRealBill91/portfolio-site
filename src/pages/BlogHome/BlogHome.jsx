@@ -1,22 +1,33 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { BlogPreview } from "../../components/blog/BlogPreview";
 import { Footer } from "../../components/Footer";
-import { BounceAnimation } from "../../components/BounceAnimation";
 import {
   useLoaderData,
   useOutletContext,
-  useRouteLoaderData,
+  useSearchParams,
 } from "react-router-dom";
 import { Toaster, toast } from "sonner";
 import { ToastContext } from "../../contexts/ToastContext";
 
 import "../../main.css";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function BlogHome() {
-  const [auth, setAuth, onBlogPage, theme] = useOutletContext();
-  const { toasts, setToasts } = useContext(ToastContext);
-  const [error, setError] = useState(null);
+  const [onBlogPage, theme] = useOutletContext();
+  const { toasts, addToast, removeToasts } = useContext(ToastContext);
+  const [searchParams, setSearchParams] = useSearchParams();
   const blogEntries = useLoaderData();
+  const { setAuth } = useContext(AuthContext);
+
+  const isLoggedIn = searchParams.get("isLoggedIn") === "true";
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      addToast("Login success");
+      setAuth(true);
+      setSearchParams({});
+    }
+  }, []);
 
   const backgroundColor =
     theme === "dark" ? "rgb(75 85 99)" : "rgb(248 250 252)";
@@ -25,7 +36,7 @@ export function BlogHome() {
   useEffect(() => {
     if (toasts.length > 0) {
       toast.success(toasts.at(-1));
-      setToasts([]);
+      removeToasts();
     }
   }, [toasts]);
 

@@ -21,6 +21,7 @@ const validatePassword = (password) => {
   const strongPasswordRegex =
     /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^])[A-Za-z\d@$!%*?&^]{8,}$/;
   const passwordValid = strongPasswordRegex.test(password);
+  console.log(strongPasswordRegex.test(password));
   if (!passwordValid) {
     return "Your password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character such as @$!%*?&.";
   } else {
@@ -36,11 +37,31 @@ const passwordsMatch = (password, passwordConfirmation) => {
   }
 };
 
+export const processServerErrors = (unprocessedServerErrors) => {
+  const serverErrors = {};
+  unprocessedServerErrors.map((error) => {
+    switch (error.path) {
+      case "username":
+        serverErrors.username = error.msg;
+        break;
+      case "email":
+        serverErrors.email = error.msg;
+        break;
+      case "password":
+        serverErrors.password = error.msg;
+        break;
+      case "passwordConfirmation":
+        serverErrors.passwordConfirmation = error.msg;
+    }
+  });
+  return serverErrors;
+};
+
 export const validateForm = (
-  password,
-  passwordConfirmation,
   username,
-  email
+  email,
+  password,
+  passwordConfirmation
 ) => {
   const clientErrors = {};
 

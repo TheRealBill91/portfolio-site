@@ -2,7 +2,7 @@ import { AnimatePresence } from "framer-motion";
 import { PortfolioMenu } from "./PortfolioMenu";
 import { BlogMenu } from "./BlogMenu";
 
-export function MobileMenu({ toggleMobileMenu, onBlogPage, auth, signOut }) {
+export function MobileMenu({ toggleMobileMenu, onBlogPage, signOut }) {
   return (
     <>
       <AnimatePresence>
@@ -11,11 +11,7 @@ export function MobileMenu({ toggleMobileMenu, onBlogPage, auth, signOut }) {
             {!onBlogPage ? (
               <PortfolioMenu toggleMobileMenu={toggleMobileMenu} />
             ) : (
-              <BlogMenu
-                toggleMobileMenu={toggleMobileMenu}
-                signOut={signOut}
-                auth={auth}
-              />
+              <BlogMenu toggleMobileMenu={toggleMobileMenu} signOut={signOut} />
             )}
           </ul>
         </div>

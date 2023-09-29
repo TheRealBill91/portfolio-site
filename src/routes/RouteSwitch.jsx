@@ -7,13 +7,9 @@ import { BlogPost } from "../pages/BlogPost/BlogPost";
 import { SignIn } from "../pages/Auth/SignIn/SignIn";
 import { SignUp } from "../pages/Auth/SignUp/SignUp";
 import { AuthProvider } from "../contexts/AuthContext";
-
-async function blogEntriesLoader() {
-  const blogEntries = await fetch(`http://localhost:3000/client/blog_entries`, {
-    mode: "cors",
-  });
-  return await blogEntries.json();
-}
+import { signUpValidationAction } from "./actions/authActions";
+import { signInAction } from "./actions/authActions";
+import { blogEntriesLoader } from "./loaders/blogLoaders";
 
 export const RouteSwitch = () => {
   const router = createBrowserRouter([
@@ -37,10 +33,12 @@ export const RouteSwitch = () => {
             {
               path: "/bloghome/signin",
               element: <SignIn />,
+              action: signInAction,
             },
             {
               path: "/bloghome/signup",
               element: <SignUp />,
+              action: signUpValidationAction,
             },
 
             {

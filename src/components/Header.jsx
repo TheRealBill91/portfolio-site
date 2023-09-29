@@ -6,6 +6,7 @@ import { ToastContext } from "../contexts/ToastContext";
 import { NavBar } from "./NavBar/NavBar";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../contexts/AuthContext";
 
 const Path = (props) => (
   <motion.path fill="grey" strokeWidth="3.3" strokeLinecap="round" {...props} />
@@ -18,12 +19,11 @@ export function Header(props) {
     toggleTheme,
     theme,
     onBlogPage,
-    auth,
-    setAuth,
   } = props;
 
   const navigate = useNavigate();
   const { addToast } = useContext(ToastContext);
+  const { setAuth } = useContext(AuthContext);
 
   const signOut = async () => {
     toggleMobileMenu();
@@ -52,7 +52,6 @@ export function Header(props) {
         <MobileMenu
           onBlogPage={onBlogPage}
           toggleMobileMenu={toggleMobileMenu}
-          auth={auth}
           signOut={signOut}
         />
       ) : null}
