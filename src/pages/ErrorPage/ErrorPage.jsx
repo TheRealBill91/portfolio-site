@@ -7,7 +7,7 @@ export const ErrorPage = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate("/bloghome");
+      navigate("/blog");
     }, 4000);
   }, [navigate]);
 

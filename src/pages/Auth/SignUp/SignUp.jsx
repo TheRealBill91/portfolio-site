@@ -6,7 +6,6 @@ import {
   Form,
   useSubmit,
 } from "react-router-dom";
-import { Footer } from "../../../components/Footer";
 import { validateForm } from "../../../utils/signUpValidation";
 
 export function SignUp() {
@@ -43,7 +42,7 @@ export function SignUp() {
     submit(formData, {
       replace: true,
       method: "post",
-      action: "/bloghome/signup",
+      action: "/blog/signup",
     });
   };
 
@@ -135,7 +134,6 @@ export function SignUp() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

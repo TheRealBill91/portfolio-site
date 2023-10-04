@@ -59,7 +59,7 @@ export function PortfolioMenu({ toggleMobileMenu }) {
         <Link
           className="border-t border-gray-500 pt-12"
           onClick={toggleMobileMenu}
-          to="/bloghome"
+          to="/blog"
         >
           <motion.div
             key={1}

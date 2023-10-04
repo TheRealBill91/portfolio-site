@@ -29,7 +29,7 @@ export const Footer = memo(function Footer() {
     >
       <footer
         id="contact"
-        className="flex flex-col items-center gap-3  bg-gray-300 p-6 pb-10 text-slate-900 dark:bg-gray-600 dark:text-slate-100 sm:gap-4"
+        className="flex flex-col items-center gap-3   bg-gray-300 p-6 pb-10 text-slate-900 dark:bg-gray-600 dark:text-slate-100 sm:gap-4"
       >
         <motion.div variants={cardVariants}>
           <h2 className="pb-2 pt-3 text-center text-3xl font-bold sm:text-4xl">

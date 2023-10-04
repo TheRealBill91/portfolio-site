@@ -7,6 +7,7 @@ import { MotionConfig } from "framer-motion";
 import { LoadingAnimation } from "../components/portfolio/LoadingAnimation";
 import { ToastProvider } from "../contexts/ToastContext";
 import { BounceAnimation } from "./BounceAnimation";
+import { Footer } from "./Footer";
 
 export function MainLayout() {
   const [theme, setTheme] = useDarkMode();
@@ -18,12 +19,11 @@ export function MainLayout() {
   };
 
   const navigation = useNavigation();
-
   const location = useLocation();
   // check if bloghome is the base route for displaying
   // different nav items
   const pathParts = location.pathname.split("/");
-  const onBlogPage = pathParts[1] === "bloghome";
+  const onBlogPage = pathParts[1] === "blog";
 
   const toggleMobileMenu = () => {
     setMobileMenuVisible(!mobileMenuVisible);
@@ -57,6 +57,7 @@ export function MainLayout() {
             ) : (
               <Outlet context={[onBlogPage, theme]} />
             )}
+            <Footer />
           </ToastProvider>
         </div>
       )}

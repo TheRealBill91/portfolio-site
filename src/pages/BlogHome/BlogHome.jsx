@@ -1,6 +1,5 @@
 import { useContext, useEffect } from "react";
 import { BlogPreview } from "../../components/blog/BlogPreview";
-import { Footer } from "../../components/Footer";
 import {
   useLoaderData,
   useOutletContext,
@@ -13,7 +12,7 @@ import "../../main.css";
 import { AuthContext } from "../../contexts/AuthContext";
 
 export function BlogHome() {
-  const [onBlogPage, theme] = useOutletContext();
+  const [theme] = useOutletContext();
   const { toasts, addToast, removeToasts } = useContext(ToastContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const blogEntries = useLoaderData();
@@ -49,7 +48,7 @@ export function BlogHome() {
         <section
           className={`grid flex-1 auto-rows-max ${
             blogEntries.length > 0
-              ? "grid-cols-[repeat(auto-fill,minmax(250px,1fr))]"
+              ? "grid-cols-[repeat(auto-fill,minmax(250px,1fr))]  xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]"
               : ""
           } gap-6 px-4  dark:text-slate-100  md:gap-10`}
         >
@@ -72,7 +71,6 @@ export function BlogHome() {
           }}
         />
       </main>
-      <Footer />
     </>
   );
 }

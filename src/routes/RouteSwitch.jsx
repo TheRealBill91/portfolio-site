@@ -9,7 +9,7 @@ import { SignUp } from "../pages/Auth/SignUp/SignUp";
 import { AuthProvider } from "../contexts/AuthContext";
 import { signUpValidationAction } from "./actions/authActions";
 import { signInAction } from "./actions/authActions";
-import { blogEntriesLoader } from "./loaders/blogLoaders";
+import { blogEntriesLoader, blogPostLoader } from "./loaders/blogLoaders";
 
 export const RouteSwitch = () => {
   const router = createBrowserRouter([
@@ -23,27 +23,28 @@ export const RouteSwitch = () => {
           index: true,
         },
         {
-          path: "/bloghome",
+          path: "blog",
           children: [
             {
-              index: true,
               element: <BlogHome />,
+              index: true,
               loader: blogEntriesLoader,
             },
+
             {
-              path: "/bloghome/signin",
+              path: ":postId",
+              element: <BlogPost />,
+              loader: blogPostLoader,
+            },
+            {
+              path: "signin",
               element: <SignIn />,
               action: signInAction,
             },
             {
-              path: "/bloghome/signup",
+              path: "signup",
               element: <SignUp />,
               action: signUpValidationAction,
-            },
-
-            {
-              path: ":blogId",
-              element: <BlogPost />,
             },
           ],
         },

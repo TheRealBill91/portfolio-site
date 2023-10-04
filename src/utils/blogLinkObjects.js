@@ -1,26 +1,26 @@
 export const blogLinkObjects = [
   {
     id: self.crypto.randomUUID(),
-    path: "/bloghome",
+    path: "/blog",
     name: "Blog",
     delay: 0.1,
   },
   {
     id: self.crypto.randomUUID(),
     name: "Sign in",
-    path: "/bloghome/signin",
+    path: "/blog/signin",
     delay: 0.3,
   },
   {
     id: self.crypto.randomUUID(),
     name: "Sign Out",
-    path: "/bloghome",
+    path: "/blog/signout",
     delay: 0.3,
   },
 
   {
     id: self.crypto.randomUUID(),
-    path: "/bloghome/signup",
+    path: "/blog/signup",
     name: "Sign up",
     delay: 0.5,
   },

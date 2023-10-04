@@ -37,7 +37,7 @@ export function Header(props) {
       if (response.ok) {
         addToast("Log out successful");
         setAuth(false);
-        navigate("/bloghome");
+        navigate("/blog");
       } else {
         throw response;
       }
