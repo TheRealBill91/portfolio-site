@@ -1,4 +1,4 @@
-import { useFetchers, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import { BackButton } from "../../components/blog/BackButton";
 import { BlogContent } from "../../components/blog/BlogContent";
 import { BlogCommentsLayout } from "../../components/blog/BlogCommentsLayout";
@@ -14,14 +14,14 @@ export function BlogPost() {
   const navTo = "/blog";
   return (
     <>
-      <main className="flex flex-1 flex-col px-5 py-7 text-slate-900">
+      <main className="flex flex-1 flex-col bg-gray-100/50 px-5 py-7 text-slate-900 dark:bg-slate-800">
         <BackButton navTo={navTo} />
         <div
-          className="my-3 mt-10 flex flex-col gap-3
-         self-center px-2 py-6 text-center"
+          className="my-3 mt-10 flex flex-col gap-3 self-center
+         px-2 py-6 text-center dark:text-slate-100"
         >
           <h2 className="text-3xl font-semibold">{postData.title}</h2>
-          <p className="max-w-[130px] self-center rounded-md border border-black px-2 py-1 shadow-md shadow-slate-200">
+          <p className="max-w-[130px] self-center rounded-md border border-slate-900 px-2 py-1 shadow-md shadow-slate-200 dark:border-slate-100 dark:shadow-slate-700">
             {datePublished}
           </p>
         </div>

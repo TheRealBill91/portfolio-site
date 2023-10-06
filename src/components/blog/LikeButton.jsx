@@ -42,7 +42,7 @@ export function LikeButton({ comment }) {
           <Icon
             className={`${
               liked ? "fill-gray-100 " : "fill-slate-700"
-            } h-4 w-4  sm:h-12 sm:w-12`}
+            } h-4 w-4  `}
             id={"thumbs-up"}
           />
         </button>

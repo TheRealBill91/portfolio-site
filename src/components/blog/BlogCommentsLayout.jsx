@@ -5,13 +5,13 @@ import { LikeButton } from "./LikeButton";
 export function BlogCommentsLayout({ blogComments }) {
   return (
     <section className=" lg:min-w-[65ch] lg:self-center">
-      <h2 className="mx-3 mb-3 text-2xl font-semibold text-slate-900">
+      <h2 className="mx-3 mb-3 text-2xl font-semibold text-slate-900 dark:text-slate-100">
         Comments
       </h2>
       <div className="flex flex-col gap-6 px-3 py-2">
         {blogComments.map((comment) => (
           <article
-            className="flex flex-col   rounded-lg bg-gray-100 p-4 py-5 shadow-md shadow-slate-300"
+            className="flex max-w-[600px] flex-col   rounded-lg bg-white p-4 py-5 shadow-md dark:shadow-slate-600 shadow-slate-300"
             key={comment._id}
           >
             <div className="">
