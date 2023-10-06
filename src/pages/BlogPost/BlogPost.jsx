@@ -1,15 +1,15 @@
-import { useLoaderData } from "react-router-dom";
+import { useFetchers, useLoaderData } from "react-router-dom";
 import { BackButton } from "../../components/blog/BackButton";
 import { BlogContent } from "../../components/blog/BlogContent";
 import { BlogCommentsLayout } from "../../components/blog/BlogCommentsLayout";
+import { BlogCommentForm } from "../../components/blog/BlogCommentForm";
+import { useContext } from "react";
+import { AuthContext } from "../../contexts/AuthContext";
 
 export function BlogPost() {
   const [postData, commentsData] = useLoaderData();
   const datePublished = postData.formatted_date_stamp;
-
-  commentsData.map((comment) => {
-    console.log("each comments data" + comment.content);
-  });
+  const { auth } = useContext(AuthContext);
 
   const navTo = "/blog";
   return (
@@ -25,8 +25,11 @@ export function BlogPost() {
             {datePublished}
           </p>
         </div>
-        <BlogContent blogContentHTML={postData.content} />
-        <BlogCommentsLayout blogComments={commentsData} />
+        <div className="flex flex-col gap-4">
+          <BlogContent blogContentHTML={postData.content} />
+          <BlogCommentsLayout blogComments={commentsData} />
+          {auth ? <BlogCommentForm /> : "Login Or Signup to create a comment"}
+        </div>
       </main>
     </>
   );

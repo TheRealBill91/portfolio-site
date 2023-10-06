@@ -17,6 +17,7 @@ export async function blogPostLoader({ params }) {
     url: `http://localhost:3000/client/${params.postId}/blog_comments`,
     options: {
       mode: "cors",
+      credentials: "include",
     },
   };
   const blogPostData = (
@@ -27,7 +28,6 @@ export async function blogPostLoader({ params }) {
   ).map((r) => r.json());
 
   const [postData, commentsData] = await Promise.all(blogPostData);
-  console.log(commentsData);
 
   return [postData.blog, commentsData];
 }

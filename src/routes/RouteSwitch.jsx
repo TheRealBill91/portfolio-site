@@ -10,6 +10,7 @@ import { AuthProvider } from "../contexts/AuthContext";
 import { signUpValidationAction } from "./actions/authActions";
 import { signInAction } from "./actions/authActions";
 import { blogEntriesLoader, blogPostLoader } from "./loaders/blogLoaders";
+import { blogPostAction } from "./actions/blogPostActions";
 
 export const RouteSwitch = () => {
   const router = createBrowserRouter([
@@ -35,6 +36,16 @@ export const RouteSwitch = () => {
               path: ":postId",
               element: <BlogPost />,
               loader: blogPostLoader,
+              action: blogPostAction,
+              shouldRevalidate: ({ formData }) => {
+                const formDataObj = Object.fromEntries(formData);
+                if (
+                  formDataObj.authStatus === "false" &&
+                  formDataObj.intent === "likecomment"
+                ) {
+                  return false;
+                }
+              },
             },
             {
               path: "signin",

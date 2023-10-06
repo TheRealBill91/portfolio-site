@@ -65,7 +65,6 @@ export function SignUp() {
                     name="username"
                     placeholder="beebop123"
                     type="text"
-                    required
                   />
                   {clientErrors && (
                     <span className="text-red-600">
@@ -82,7 +81,6 @@ export function SignUp() {
                     name="email"
                     placeholder="username@example.com"
                     type="email"
-                    required
                   />
                   {clientErrors && (
                     <span className="text-red-600">{clientErrors.email}</span>
@@ -99,7 +97,6 @@ export function SignUp() {
                     name="password"
                     id="password"
                     type="password"
-                    required
                   />
                   {clientErrors && (
                     <span className="text-red-600">
@@ -114,7 +111,6 @@ export function SignUp() {
                     name="passwordConfirmation"
                     id="passwordConfirmation"
                     type="password"
-                    required
                   />
 
                   {clientErrors && (
