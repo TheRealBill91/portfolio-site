@@ -19,36 +19,46 @@ export function BlogMenu({ toggleMobileMenu, signOut }) {
   return (
     <>
       <AnimatePresence>
-        {updatedblogLinkObjects.map((blogLinkObj) => (
-          <Link
-            onClick={
-              blogLinkObj.name === "Sign Out" ? signOut : toggleMobileMenu
-            }
-            key={blogLinkObj.id}
-            to={blogLinkObj.path}
-            className={`${
-              blogLinkObj.path === "/"
-                ? "border-t border-gray-500 pt-12 dark:border-slate-100"
-                : ""
-            }`}
-            state={{
-              message: "Signout successful",
-            }}
-            replace={true}
-          >
-            <motion.div
+        {updatedblogLinkObjects.map((blogLinkObj) =>
+          blogLinkObj.name === "Sign Out" ? (
+            <button onClick={signOut} key={blogLinkObj.id}>
+              <motion.div
+                key={blogLinkObj.id}
+                initial={itemVariants.initial}
+                exit={itemVariants.exit}
+                animate={{
+                  ...itemVariants.animate,
+                  transition: { delay: blogLinkObj.delay, duration: 0.5 },
+                }}
+              >
+                {blogLinkObj.name}
+              </motion.div>
+            </button>
+          ) : (
+            <Link
+              onClick={toggleMobileMenu}
+              to={blogLinkObj.path}
               key={blogLinkObj.id}
-              initial={itemVariants.initial}
-              exit={itemVariants.exit}
-              animate={{
-                ...itemVariants.animate,
-                transition: { delay: blogLinkObj.delay, duration: 0.5 },
-              }}
+              className={`${
+                blogLinkObj.path === "/"
+                  ? "border-t border-gray-500 pt-12 dark:border-slate-100"
+                  : ""
+              }`}
             >
-              {blogLinkObj.name}
-            </motion.div>
-          </Link>
-        ))}
+              <motion.div
+                key={blogLinkObj.id}
+                initial={itemVariants.initial}
+                exit={itemVariants.exit}
+                animate={{
+                  ...itemVariants.animate,
+                  transition: { delay: blogLinkObj.delay, duration: 0.5 },
+                }}
+              >
+                {blogLinkObj.name}
+              </motion.div>
+            </Link>
+          )
+        )}
       </AnimatePresence>
     </>
   );

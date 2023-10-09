@@ -3,7 +3,13 @@ import { processServerErrors as processCommentCreationServerErrors } from "../..
 export async function blogPostAction({ request, params }) {
   let formData = await request.formData();
   const intent = formData.get("intent");
+  // use to prevent double submissions
+  const state = formData.get("state");
   const authStatus = formData.get("authStatus");
+
+  if (state === "submitting") {
+    return null;
+  }
 
   if (authStatus === "false") {
     return { failMessage: "need to sign in or login" };
@@ -34,7 +40,7 @@ async function likeComment(commentId) {
   const response = await fetch(likeFetchDetails.url, likeFetchDetails.options);
 
   if (!response.ok) {
-    // console.log(await response.json());
+    throw response;
   }
 
   return { ok: true };

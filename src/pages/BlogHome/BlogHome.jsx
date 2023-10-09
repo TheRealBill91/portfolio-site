@@ -10,9 +10,14 @@ import { ToastContext } from "../../contexts/ToastContext";
 
 import "../../main.css";
 import { AuthContext } from "../../contexts/AuthContext";
+import {
+  toastBackgroundColors,
+  toastTextColors,
+} from "../../assets/styles/toastStyles";
 
 export function BlogHome() {
-  const [theme] = useOutletContext();
+  // eslint-disable-next-line no-unused-vars
+  const [onBlogPage, theme] = useOutletContext();
   const { toasts, addToast, removeToasts } = useContext(ToastContext);
   const [searchParams, setSearchParams] = useSearchParams();
   const blogEntries = useLoaderData();
@@ -28,9 +33,9 @@ export function BlogHome() {
     }
   }, []);
 
-  const backgroundColor =
-    theme === "dark" ? "rgb(75 85 99)" : "rgb(248 250 252)";
-  const textColor = theme === "dark" ? "#F1F5F9" : "#0F172A";
+  // colors for sonner banners
+  const backgroundColors = toastBackgroundColors(theme);
+  const textColors = toastTextColors(theme);
 
   useEffect(() => {
     if (toasts.length > 0) {
@@ -41,7 +46,7 @@ export function BlogHome() {
 
   return (
     <>
-      <main className=" flex min-h-screen flex-col gap-6 bg-gray-200/60 px-6 py-9 text-slate-900 dark:bg-gray-800">
+      <main className=" flex min-h-screen flex-col gap-6 bg-gray-100 px-6 py-9 text-slate-900 dark:bg-gray-800">
         <h2 className="text-center text-3xl font-bold capitalize dark:text-slate-100">
           blog entries
         </h2>
@@ -63,8 +68,8 @@ export function BlogHome() {
         <Toaster
           toastOptions={{
             style: {
-              backgroundColor: `${backgroundColor}`,
-              color: `${textColor}`,
+              backgroundColor: `${backgroundColors}`,
+              color: `${textColors}`,
               border: "none",
             },
             duration: 5000,

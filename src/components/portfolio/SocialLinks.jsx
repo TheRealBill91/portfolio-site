@@ -19,7 +19,7 @@ export function SocialLinks() {
             aria-label="Github profile link"
           >
             <Icon
-              className="h-9 w-9 text-slate-900 transition-colors  dark:text-gray-100 dark:hover:text-gray-200 sm:h-10 sm:w-10 lg:hover:text-slate-700 lg:hover:dark:text-gray-300"
+              className="h-9 w-9 text-slate-900 transition-colors  dark:text-slate-100 dark:hover:text-gray-200 sm:h-10 sm:w-10 lg:hover:text-slate-700 lg:hover:dark:text-gray-300"
               id="GithubLogo"
             />
           </a>
@@ -32,7 +32,7 @@ export function SocialLinks() {
             aria-label="Linkedin profile link"
           >
             <Icon
-              className="h-9 w-9 text-slate-900 transition-colors  dark:text-gray-100 dark:hover:text-gray-200 sm:h-10 sm:w-10 lg:hover:text-slate-700 lg:hover:dark:text-gray-300"
+              className="h-9 w-9 text-slate-900 transition-colors  dark:text-slate-100 dark:hover:text-gray-200 sm:h-10 sm:w-10 lg:hover:text-slate-700 lg:hover:dark:text-gray-300"
               id={linkedinID}
             />
           </a>

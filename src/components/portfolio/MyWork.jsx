@@ -32,7 +32,7 @@ export const MyWork = memo(function MyWork() {
           initial="offscreen"
           viewport={{ once: true, amount: 0.5 }}
         >
-          <h2 className="text-black-600 pb-4 text-center text-3xl font-bold text-slate-900 dark:text-gray-100 sm:text-4xl">
+          <h2 className="text-black-600 pb-4 text-center text-3xl font-bold text-slate-900 dark:text-slate-100 sm:text-4xl">
             My Work
           </h2>
         </motion.div>
@@ -53,11 +53,11 @@ export const MyWork = memo(function MyWork() {
               ></img>
 
               <div className=" flex flex-col gap-6 p-6 pt-4 dark:rounded-b-md sm:mt-3 sm:gap-8 xl:h-[168px] ">
-                <p className=" text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl">
+                <p className=" text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl">
                   {" "}
                   An e-commerce watch store built using Vite & React Router
                 </p>
-                <div className=" flex items-center justify-between px-2  text-slate-900 dark:text-gray-100 sm:px-6 ">
+                <div className=" flex items-center justify-between px-2  text-slate-900 dark:text-slate-100 sm:px-6 ">
                   <h3 className="text-center text-2xl sm:text-3xl ">
                     Timeless{" "}
                   </h3>
@@ -70,7 +70,7 @@ export const MyWork = memo(function MyWork() {
                       rel="noreferrer"
                     >
                       <Icon
-                        className="group-hover: fill-white-400 h-8 w-8 rounded-full  text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700 "
+                        className="group-hover: fill-white-400 h-8 w-8 rounded-full  text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700 "
                         id={GITHUB_SVG_ID}
                       />
                     </a>
@@ -81,7 +81,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://timelesswatches.netlify.app/"
                     >
                       <Icon
-                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={OPEN_IN_NEW_ID}
                       />
                     </a>
@@ -105,10 +105,10 @@ export const MyWork = memo(function MyWork() {
                 className="rounded-md rounded-b-none sm:rounded-b-md lg:h-[300px] lg:w-full lg:object-cover lg:object-top"
               ></img>
               <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 pt-4 dark:rounded-b-md sm:mt-3 sm:gap-8 ">
-                <p className="text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl ">
+                <p className="text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl ">
                   Classic battleship game built with HTML, CSS, and JavaScript
                 </p>
-                <div className="flex items-center justify-between gap-6  text-slate-900 dark:text-gray-100 sm:px-6 ">
+                <div className="flex items-center justify-between gap-6  text-slate-900 dark:text-slate-100 sm:px-6 ">
                   <h3 className="text-center text-2xl capitalize sm:text-3xl">
                     battleship{" "}
                   </h3>
@@ -120,7 +120,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://github.com/TheRealBill91/Battleship-Odin-Project"
                     >
                       <Icon
-                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={GITHUB_SVG_ID}
                       />
                     </a>
@@ -131,7 +131,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://therealbill91.github.io/Battleship-Odin-Project/"
                     >
                       <Icon
-                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={OPEN_IN_NEW_ID}
                       />
                     </a>
@@ -155,11 +155,11 @@ export const MyWork = memo(function MyWork() {
                 className="rounded-md rounded-b-none sm:rounded-b-md lg:h-[300px] lg:w-full lg:object-cover lg:object-top"
               ></img>
               <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 dark:rounded-b-md sm:mt-3 sm:gap-8 ">
-                <p className="text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl ">
+                <p className="text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl ">
                   A weather forecast website with searchable locations and
                   different weather metrics
                 </p>
-                <div className="flex items-center justify-between gap-6  text-slate-900 dark:text-gray-100 sm:px-6 ">
+                <div className="flex items-center justify-between gap-6  text-slate-900 dark:text-slate-100 sm:px-6 ">
                   <h3 className="text-center text-2xl sm:text-3xl">
                     Weather Wise{" "}
                   </h3>
@@ -171,7 +171,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://github.com/TheRealBill91/Weather-Forecast-Site"
                     >
                       <Icon
-                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={GITHUB_SVG_ID}
                       />
                     </a>
@@ -182,7 +182,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://therealbill91.github.io/Weather-Forecast-Site/"
                     >
                       <Icon
-                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={OPEN_IN_NEW_ID}
                       />
                     </a>
@@ -206,10 +206,10 @@ export const MyWork = memo(function MyWork() {
                 sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px"
               ></img>
               <div className=" flex flex-1 flex-col gap-6 p-6 sm:mt-3 sm:gap-8 lg:h-[176px] lg:justify-around">
-                <p className="text-center text-lg text-slate-600 dark:text-gray-300 sm:text-xl ">
+                <p className="text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl ">
                   A feature rich, minimalist designed to-do list
                 </p>
-                <div className="flex items-center justify-between px-1 text-slate-900 dark:text-gray-100 sm:px-6">
+                <div className="flex items-center justify-between px-1 text-slate-900 dark:text-slate-100 sm:px-6">
                   <h3 className="text-center text-2xl sm:text-3xl">
                     To-do list
                   </h3>
@@ -221,7 +221,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://github.com/TheRealBill91/Todo-List"
                     >
                       <Icon
-                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={GITHUB_SVG_ID}
                       />
                     </a>
@@ -232,7 +232,7 @@ export const MyWork = memo(function MyWork() {
                       href="https://therealbill91.github.io/Todo-List/"
                     >
                       <Icon
-                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-gray-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
+                        className="h-8 w-8 text-slate-900 transition-colors hover:text-slate-800 dark:text-slate-100 dark:hover:text-gray-300 sm:h-10 sm:w-10 lg:hover:text-slate-700"
                         id={OPEN_IN_NEW_ID}
                       />
                     </a>

@@ -29,5 +29,6 @@ This is a responsive personal portfolio site that showcases my web development s
 - [Tailwind](https://tailwindcss.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [Simple Icons](https://simpleicons.org/)
+- [Pictogrammers(Material Design Icons)](https://pictogrammers.com/library/mdi/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Loading animation](https://davisgitonga.dev/blog/tailwindcss-bouncing-loader)

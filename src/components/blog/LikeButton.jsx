@@ -27,7 +27,7 @@ export function LikeButton({ comment }) {
       <input type="hidden" name="intent" value={"likecomment"}></input>
       <div className="flex items-center gap-3">
         {upvoteCount > 0 ? (
-          <p className="text-slate-600">{upvoteCount}</p>
+          <p className="text-slate-600 dark:text-slate-700">{upvoteCount}</p>
         ) : null}
         <button
           className={`${

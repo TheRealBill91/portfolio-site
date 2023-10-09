@@ -5,6 +5,7 @@ import { BlogCommentsLayout } from "../../components/blog/BlogCommentsLayout";
 import { BlogCommentForm } from "../../components/blog/BlogCommentForm";
 import { useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext";
+import { LoginOrSignout } from "../../components/LoginOrSignup";
 
 export function BlogPost() {
   const [postData, commentsData] = useLoaderData();
@@ -14,7 +15,7 @@ export function BlogPost() {
   const navTo = "/blog";
   return (
     <>
-      <main className="flex flex-1 flex-col bg-gray-100/50 px-5 py-7 text-slate-900 dark:bg-slate-800">
+      <main className="flex flex-1 flex-col bg-gray-100/50 px-5 py-10 text-slate-900 dark:bg-slate-800">
         <BackButton navTo={navTo} />
         <div
           className="my-3 mt-10 flex flex-col gap-3 self-center
@@ -27,8 +28,16 @@ export function BlogPost() {
         </div>
         <div className="flex flex-col gap-4">
           <BlogContent blogContentHTML={postData.content} />
+          <div className="mb-2 mt-3 flex flex-col items-center px-3    lg:min-w-[600px] lg:self-center  ">
+            <div className="w-full self-start border-t border-gray-400"></div>
+          </div>
+          {auth ? <BlogCommentForm /> : <LoginOrSignout />}
+          {!auth && (
+            <div className="mb-3 mt-3 flex flex-col items-center px-3    lg:min-w-[600px] lg:self-center  ">
+              <div className="w-full self-start border-t border-gray-400"></div>
+            </div>
+          )}
           <BlogCommentsLayout blogComments={commentsData} />
-          {auth ? <BlogCommentForm /> : "Login Or Signup to create a comment"}
         </div>
       </main>
     </>

@@ -8,6 +8,12 @@ export async function signUpValidationAction({ request }) {
   const password = formData.get("password");
   const passwordConfirmation = formData.get("passwordConfirmation");
 
+  const state = formData.get("state");
+
+  if (state === "submitting") {
+    return null;
+  }
+
   const response = await fetch("http://localhost:3000/client/users/signup", {
     mode: "cors",
     method: "POST",
@@ -36,6 +42,11 @@ export async function signInAction({ request }) {
   const formData = await request.formData();
   const email = formData.get("email");
   const password = formData.get("password");
+  const state = formData.get("state");
+
+  if (state === "submitting") {
+    return null;
+  }
 
   const response = await fetch("http://localhost:3000/client/auth/login", {
     mode: "cors",
@@ -52,3 +63,7 @@ export async function signInAction({ request }) {
 
   return redirect(`/blog?isLoggedIn=${true}`);
 }
+
+/* export async function logOutAction() {
+
+} */

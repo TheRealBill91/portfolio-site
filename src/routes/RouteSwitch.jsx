@@ -38,8 +38,10 @@ export const RouteSwitch = () => {
               loader: blogPostLoader,
               action: blogPostAction,
               shouldRevalidate: ({ formData }) => {
+                if (!Object.keys(formData).length > 0) return true;
                 const formDataObj = Object.fromEntries(formData);
                 if (
+                  formDataObj &&
                   formDataObj.authStatus === "false" &&
                   formDataObj.intent === "likecomment"
                 ) {

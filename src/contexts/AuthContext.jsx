@@ -6,7 +6,6 @@ export function AuthProvider({ children }) {
   const [auth, setAuth] = useState(false);
   const [authStatusError, setAuthStatusError] = useState(null);
 
-
   useEffect(() => {
     async function checkAuthStatus() {
       try {
@@ -19,7 +18,7 @@ export function AuthProvider({ children }) {
           }
         );
         if (!response.ok) throw new Error("Problem checking auth status");
-
+        console.log("here");
         setAuth(true);
       } catch (error) {
         setAuthStatusError(error);

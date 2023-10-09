@@ -8,6 +8,7 @@ import { LoadingAnimation } from "../components/portfolio/LoadingAnimation";
 import { ToastProvider } from "../contexts/ToastContext";
 import { BounceAnimation } from "./BounceAnimation";
 import { Footer } from "./Footer";
+import { ScrollRestoration } from "react-router-dom";
 
 export function MainLayout() {
   const [theme, setTheme] = useDarkMode();
@@ -34,33 +35,36 @@ export function MainLayout() {
   };
 
   return (
-    <MotionConfig reducedMotion="user">
-      {loadAnimationStatus && !onBlogPage ? (
-        <LoadingAnimation theme={theme} loadHomePage={loadHomePage} />
-      ) : (
-        <div
-          id="mainWrapper"
-          className={`${theme} ${
-            mobileMenuVisible ? "fixed" : ""
-          } sm:overflow-unset  flex min-h-screen w-full flex-col overflow-hidden font-rubik  `}
-        >
-          <ToastProvider>
-            <Header
-              toggleMobileMenu={toggleMobileMenu}
-              mobileMenuVisible={mobileMenuVisible}
-              toggleTheme={toggleTheme}
-              theme={theme}
-              onBlogPage={onBlogPage}
-            />
-            {navigation.state === "loading" ? (
-              <BounceAnimation />
-            ) : (
-              <Outlet context={[onBlogPage, theme]} />
-            )}
-            <Footer />
-          </ToastProvider>
-        </div>
-      )}
-    </MotionConfig>
+    <>
+      <MotionConfig reducedMotion="user">
+        {loadAnimationStatus && !onBlogPage ? (
+          <LoadingAnimation theme={theme} loadHomePage={loadHomePage} />
+        ) : (
+          <div
+            id="mainWrapper"
+            className={`${theme} ${
+              mobileMenuVisible ? "fixed" : ""
+            } sm:overflow-unset  flex min-h-screen w-full flex-col overflow-hidden font-rubik  `}
+          >
+            <ToastProvider>
+              <Header
+                toggleMobileMenu={toggleMobileMenu}
+                mobileMenuVisible={mobileMenuVisible}
+                toggleTheme={toggleTheme}
+                theme={theme}
+                onBlogPage={onBlogPage}
+              />
+              {navigation.state === "loading" ? (
+                <BounceAnimation />
+              ) : (
+                <Outlet context={[onBlogPage, theme]} />
+              )}
+              <Footer />
+            </ToastProvider>
+          </div>
+        )}
+      </MotionConfig>
+      <ScrollRestoration />
+    </>
   );
 }

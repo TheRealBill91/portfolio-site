@@ -18,7 +18,6 @@ export function PortfolioHome() {
           <MySkills />
           <BackToTop mobileMenuVisible={mobileMenuVisible} />
         </main>
-        <Footer />
       </>
     </>
   );

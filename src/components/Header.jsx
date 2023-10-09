@@ -26,23 +26,28 @@ export function Header(props) {
   const { setAuth } = useContext(AuthContext);
 
   const signOut = async () => {
-    toggleMobileMenu();
+    // only toggle mobile menu if screen size is mobile
+    const smallScreen = window.matchMedia("(max-width: 640px)").matches;
+    if (smallScreen) {
+      toggleMobileMenu();
+    }
+
     try {
       const response = await fetch("http://localhost:3000/client/auth/logout", {
         mode: "cors",
-        headers: { "Content-Type": "application/json" },
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         credentials: "include",
       });
-      if (response.ok) {
-        addToast("Log out successful");
-        setAuth(false);
-        navigate("/blog");
-      } else {
+
+      if (!response.ok) {
         throw response;
       }
+      addToast("Log out successful");
+      setAuth(false);
+      navigate("/blog");
     } catch (error) {
-      // setSignOutError(error);
+      console.log("Something wrong with fetch method: " + error);
     }
   };
 
@@ -56,7 +61,7 @@ export function Header(props) {
         />
       ) : null}
 
-      <header className={` bg-gray-300 shadow-sm dark:bg-gray-600 `}>
+      <header className={` bg-gray-400/70 shadow-sm dark:bg-gray-500 `}>
         <div className="content-left md:h-18 relative flex  h-20  items-center justify-between border-none   pl-1   text-left  outline-none  sm:h-24 md:px-10 md:py-2  lg:px-12 ">
           <h1 className=" self-center p-4 text-4xl font-medium italic text-slate-900 dark:text-slate-100 sm:text-5xl ">
             BC
@@ -85,6 +90,7 @@ export function Header(props) {
               <NavBar
                 toggleMobileMenu={toggleMobileMenu}
                 onBlogPage={onBlogPage}
+                signOut={signOut}
               />
             ) : null}
           </div>
