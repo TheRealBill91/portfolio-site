@@ -27,7 +27,7 @@ export function SignIn() {
             <h1 className="mb-4  text-center text-2xl font-bold text-gray-800 dark:text-slate-100">
               Sign in with your account
             </h1>
-            <div className="flex-col rounded-xl bg-gray-300 px-10 py-6 shadow-md shadow-slate-200 dark:bg-gray-500 dark:shadow-slate-600 md:min-w-[400px] md:max-w-[550px] md:justify-center md:self-center">
+            <div className="flex-col rounded-xl bg-gray-300 px-8 py-6 shadow-md shadow-slate-200 dark:bg-gray-500 dark:shadow-slate-600 md:min-w-[400px] md:max-w-[550px] md:justify-center md:self-center">
               <Form method="POST" action="/blog/signin">
                 <input type="hidden" name="state" value={submitting}></input>
                 <div className="mb-3 flex flex-col gap-4">

@@ -1,20 +1,23 @@
 export async function blogEntriesLoader() {
-  const blogEntries = await fetch(`http://localhost:3000/client/blog_entries`, {
-    mode: "cors",
-  });
+  const blogEntries = await fetch(
+    `${import.meta.env.VITE_API_URL}/client/blog_entries`,
+    {
+      mode: "cors",
+    }
+  );
   const blogEntriesData = await blogEntries.json();
   return blogEntriesData;
 }
 
 export async function blogPostLoader({ params }) {
   const postFetchDetails = {
-    url: `http://localhost:3000/client/${params.postId}`,
+    url: `${import.meta.env.VITE_API_URL}/client/${params.postId}`,
     options: {
       mode: "cors",
     },
   };
   const commentsFetchDetails = {
-    url: `http://localhost:3000/client/${params.postId}/blog_comments`,
+    url: `${import.meta.env.VITE_API_URL}/client/${params.postId}/blog_comments`,
     options: {
       mode: "cors",
       credentials: "include",

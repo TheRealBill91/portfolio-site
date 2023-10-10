@@ -6,7 +6,7 @@ export function BlogPreviewContent({ blogContent }) {
   const blogPreviewText = parseBlogPreview(cleanHTML);
   return (
     <>
-      <p className="line-clamp-2">{blogPreviewText[0]}</p>
+      <p className="line-clamp-2 text-slate-700 dark:text-slate-200">{blogPreviewText[0]}</p>
     </>
   );
 }

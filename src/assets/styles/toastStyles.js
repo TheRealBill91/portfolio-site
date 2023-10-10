@@ -1,5 +1,5 @@
 export function toastBackgroundColors(theme) {
-  return theme === "dark" ? "rgb(75 85 99)" : "rgb(248 250 252)";
+  return theme === "dark" ? "rgb(75 85 99)" : "rgb(241 245 249)";
 }
 
 export function toastTextColors(theme) {

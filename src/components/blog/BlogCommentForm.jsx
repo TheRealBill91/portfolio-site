@@ -6,8 +6,6 @@ export function BlogCommentForm() {
   const fetcher = useFetcher();
   const serverValidationError = fetcher.data;
 
-  console.log(serverValidationError && "getting here?");
-
   let formRef = useRef();
 
   const isSubmitting = fetcher.state === "submitting";

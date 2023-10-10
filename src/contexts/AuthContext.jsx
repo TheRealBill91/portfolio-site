@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
     async function checkAuthStatus() {
       try {
         const response = await fetch(
-          "http://localhost:3000/client/users/authstatus",
+          `${import.meta.env.VITE_API_URL}/client/users/authstatus`,
           {
             mode: "cors",
             method: "GET",
@@ -18,7 +18,6 @@ export function AuthProvider({ children }) {
           }
         );
         if (!response.ok) throw new Error("Problem checking auth status");
-        console.log("here");
         setAuth(true);
       } catch (error) {
         setAuthStatusError(error);
