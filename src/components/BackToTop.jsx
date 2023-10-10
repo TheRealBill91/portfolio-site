@@ -1,6 +1,6 @@
 import { Icon } from "./Icon";
 
-export function BackToTop({ mobileMenuVisible }) {
+export function BackToTop() {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,

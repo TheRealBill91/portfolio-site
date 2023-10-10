@@ -1,6 +1,5 @@
 import { MyWork } from "../../components/portfolio/MyWork";
 import { About } from "../../components/portfolio/About";
-import { Footer } from "../../components/Footer";
 import "../../main.css";
 import { BackToTop } from "../../components/BackToTop";
 import { MySkills } from "../../components/portfolio/MySkills";
