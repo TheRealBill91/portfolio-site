@@ -24,10 +24,15 @@ export function BlogHome() {
   const { setAuth } = useContext(AuthContext);
 
   const isLoggedIn = searchParams.get("isLoggedIn") === "true";
+  const isSignedUp = searchParams.get("isSignedUp") === "true";
 
   useEffect(() => {
     if (isLoggedIn) {
       addToast("Login success");
+      setAuth(true);
+      setSearchParams({});
+    } else if (isSignedUp) {
+      addToast("Signup success");
       setAuth(true);
       setSearchParams({});
     }

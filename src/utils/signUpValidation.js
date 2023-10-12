@@ -19,7 +19,7 @@ const validateEmail = (email) => {
 
 const validatePassword = (password) => {
   const strongPasswordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&^])[A-Za-z\d@$!%*?&^]{8,}$/;
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#!%*?&^])[A-Za-z\d@$#!%*?&^]{8,}$/;
   const passwordValid = strongPasswordRegex.test(password);
   if (!passwordValid) {
     return "Your password must contain at least 8 characters, including 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character such as @$!%*?&.";

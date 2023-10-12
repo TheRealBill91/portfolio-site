@@ -3,11 +3,8 @@ import { About } from "../../components/portfolio/About";
 import "../../main.css";
 import { BackToTop } from "../../components/BackToTop";
 import { MySkills } from "../../components/portfolio/MySkills";
-import { useOutletContext } from "react-router";
 
 export function PortfolioHome() {
-  const [mobileMenuVisible] = useOutletContext();
-
   return (
     <>
       <>
@@ -15,7 +12,7 @@ export function PortfolioHome() {
           <About />
           <MyWork />
           <MySkills />
-          <BackToTop mobileMenuVisible={mobileMenuVisible} />
+          <BackToTop />
         </main>
       </>
     </>

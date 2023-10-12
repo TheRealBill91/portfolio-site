@@ -45,7 +45,7 @@ export function SignIn() {
                       type="email"
                       required
                     />
-                    <span className="hidden w-[197px] text-red-800 peer-[&:not(:focus)]:peer-[&:not(:placeholder-shown)]:peer-invalid:inline dark:text-slate-100 dark:underline dark:decoration-red-800 dark:underline-offset-[5px] lg:w-full">
+                    <span className="hidden  w-full text-red-800 peer-[&:not(:focus)]:peer-[&:not(:placeholder-shown)]:peer-invalid:inline dark:text-slate-50 dark:underline dark:decoration-red-800 dark:underline-offset-[5px] lg:w-full">
                       Please provide a valid email address
                     </span>
                   </div>
@@ -58,15 +58,15 @@ export function SignIn() {
                       Password
                     </label>
                     <input
-                      className=" peer w-full rounded-md p-2 dark:bg-slate-50  [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-700   "
+                      className=" peer w-full rounded-md p-2 placeholder:text-white dark:bg-slate-50 dark:placeholder:text-slate-50   [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-800   "
                       name="password"
                       id="password"
                       type="password"
-                      placeholder=""
+                      placeholder="password"
                       required
                       minLength={8}
                     />
-                    <span className="hidden w-[197px] text-red-800 peer-[&:not(:focus)]:peer-[&:not(:placeholder-shown)]:peer-invalid:inline dark:text-slate-100 dark:underline dark:decoration-red-800 dark:underline-offset-[5px] lg:w-full">
+                    <span className=" hidden w-full text-red-800 peer-[&:not(:focus)]:peer-[&:not(:placeholder-shown)]:peer-invalid:inline dark:text-slate-100 dark:underline dark:decoration-red-800 dark:underline-offset-[5px] lg:w-full">
                       Please enter your password
                     </span>
                   </div>

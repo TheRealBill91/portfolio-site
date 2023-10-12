@@ -30,7 +30,9 @@ export function BlogCommentsLayout({ blogComments }) {
             </article>
           ))
         ) : (
-          <p className="">No comments yet...</p>
+          <p className="text-slate-900 dark:text-slate-100">
+            No comments yet...
+          </p>
         )}
       </div>
     </section>

@@ -18,12 +18,13 @@ export function SignUp() {
   const navTo = "/blog";
 
   const serverErrors = useActionData();
-
   const submitting = navigation.state === "submitting";
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+    if (submitting) {
+      return;
+    }
     const formData = new FormData(event.target);
 
     const username = formData.get("username");
@@ -77,6 +78,11 @@ export function SignUp() {
                         {clientErrors.username}
                       </span>
                     )}
+                    {serverErrors && Object.keys(serverErrors).length > 0 && (
+                      <span className="text-red-700 dark:text-slate-100 dark:underline dark:decoration-red-700 dark:underline-offset-[5px]">
+                        {serverErrors.username}
+                      </span>
+                    )}
                   </div>
                   <div className="mx-2 flex flex-col gap-2 text-gray-700">
                     <label className="dark:text-slate-50" htmlFor="email">
@@ -93,7 +99,7 @@ export function SignUp() {
                         {clientErrors.email}
                       </span>
                     )}
-                    {serverErrors && (
+                    {serverErrors && Object.keys(serverErrors).length > 0 && (
                       <span className="text-red-700 dark:text-slate-100 dark:underline dark:decoration-red-700 dark:underline-offset-[5px]">
                         {serverErrors.email}
                       </span>
@@ -113,6 +119,11 @@ export function SignUp() {
                     {Object.keys(clientErrors).length > 0 && (
                       <span className="text-red-700 dark:text-slate-100 dark:underline dark:decoration-red-700 dark:underline-offset-[5px]">
                         {clientErrors.password}
+                      </span>
+                    )}
+                    {serverErrors && Object.keys(serverErrors).length > 0 && (
+                      <span className="text-red-700 dark:text-slate-100 dark:underline dark:decoration-red-700 dark:underline-offset-[5px]">
+                        {serverErrors.password}
                       </span>
                     )}
                   </div>
@@ -138,6 +149,11 @@ export function SignUp() {
                     {Object.keys(clientErrors).length > 0 && (
                       <span className="text-red-700 dark:text-slate-100 dark:underline dark:decoration-red-700 dark:underline-offset-[5px]">
                         {clientErrors.passwordsMatch}
+                      </span>
+                    )}
+                    {serverErrors && Object.keys(serverErrors).length > 0 && (
+                      <span className="text-red-700 dark:text-slate-100 dark:underline dark:decoration-red-700 dark:underline-offset-[5px]">
+                        {serverErrors.passwordConfirmation}
                       </span>
                     )}
                   </div>

@@ -4,7 +4,11 @@ A responsive personal portfolio site that showcases my web development skills an
 
 ## About
 
-This is a responsive personal portfolio site that showcases my web development skills and projects. I created this site as part of the final project in the advanced HTML/CSS course for The Odin Project, a free online curriculum for learning web development. The site features a header with a photo and a navigation menu, a section with an introduction and a brief bio, a section with a list of my projects and links to their live demos and GitHub repositories, and a section with my contact information.
+This is a responsive personal portfolio and blog site that equally showcases my web development skills, projects, and my writings. This site is a showcase of my web development skills and writings, developed as part of the JavaScript course for The Odin Project, a free online learning platform for web development.
+
+The portfolio section features a collection of my projects with links to their live demos and GitHub repositories. Each project reflects my ability to create diverse web applications using various technologies.
+
+The blog section is an interactive space where I share my experiences, learnings, and thoughts on web development and other topics of interest. It allows users to read, comment on, and upvote my posts, fostering an engaging community.
 
 ## Features
 
@@ -12,6 +16,7 @@ This is a responsive personal portfolio site that showcases my web development s
 - Uses custom fonts from Google Fonts and icons from Devicon and Material Design Icons.
 - The site has a modern and minimalist design with a dark theme and subtle animations.
 - Uses semantic HTML elements and follows accessibility best practices.
+- The blog allows users to read my posts, sign in, sign up, comment on each post, and upvote different comments. It provides an interactive platform for users to engage with my content.
 
 ## What I learned
 
@@ -19,13 +24,15 @@ This is a responsive personal portfolio site that showcases my web development s
 - How to make my site accessible by using semantic HTML & other accessibility best practices
 - Using Tailwind CSS to style my website in an efficient manner
 - CSS animations
+- Utilize React Router (6.4) and it's Data API's to communicate with a RESTful API
+- Implement client and server side form validation
+- Optimistic UI for blog comment upvotes
 
 ## Tools used
 
 - [React](https://react.dev/)
+- [React Router](https://reactrouter.com/en/main)
 - [Vite](https://vitejs.dev/)
-- [Vitest](https://vitest.dev/)
-- [Testing Library](https://testing-library.com/)
 - [Tailwind](https://tailwindcss.com/)
 - [Google Fonts](https://fonts.google.com/)
 - [Simple Icons](https://simpleicons.org/)

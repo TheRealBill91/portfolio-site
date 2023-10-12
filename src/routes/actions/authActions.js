@@ -30,15 +30,13 @@ export async function signUpValidationAction({ request }) {
     }
   );
 
-  if (!response.ok) {
-    const formResponse = await response.json();
-    const unprocessedServerErrors = formResponse.errors;
-    const serverErrors = processServerErrors(unprocessedServerErrors);
-
-    return serverErrors;
-  } else if (response.ok) {
-    return redirect(`/bloghome?isLoggedIn=${true}`);
+  if (response.ok) {
+    return redirect(`/blog?isSignedUp=${true}`);
   }
+  const formResponse = await response.json();
+  const unprocessedServerErrors = formResponse.errors;
+  const serverErrors = processServerErrors(unprocessedServerErrors);
+  return serverErrors;
 }
 
 export async function signInAction({ request }) {
@@ -69,5 +67,3 @@ export async function signInAction({ request }) {
 
   return redirect(`/blog?isLoggedIn=${true}`);
 }
-
-
