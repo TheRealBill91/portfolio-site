@@ -6,7 +6,7 @@ export function LoadingAnimation({ loadHomePage, theme }) {
       >
         <h2
           onAnimationEnd={loadHomePage}
-          className="origin-center text-9xl  italic text-slate-900 motion-safe:animate-loadingScreen    dark:text-slate-100"
+          className="origin-center text-9xl w-[185px]  italic text-slate-900 motion-safe:animate-loadingScreen    dark:text-slate-100"
         >
           BC
         </h2>

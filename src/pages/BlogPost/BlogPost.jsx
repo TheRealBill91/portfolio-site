@@ -15,7 +15,7 @@ export function BlogPost() {
   const navTo = "/blog";
   return (
     <>
-      <main className="flex flex-1 flex-col bg-gray-100/50 px-5 py-10 text-slate-900 dark:bg-slate-800">
+      <main className="flex flex-1 flex-col bg-gray-100/50 px-5 py-10 text-slate-900 dark:bg-slate-800 lg:px-10  ">
         <BackButton navTo={navTo} />
         <div
           className="my-3 mt-10 flex flex-col gap-3 self-center

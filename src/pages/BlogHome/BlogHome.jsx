@@ -51,16 +51,16 @@ export function BlogHome() {
 
   return (
     <>
-      <main className=" flex min-h-screen flex-col gap-6 bg-gray-100 px-6 py-9 text-slate-900 dark:bg-gray-800">
+      <main className=" flex min-h-screen flex-col gap-6 bg-gray-100 px-6 md:px-8 py-9 lg:px-10 xl:px-16 text-slate-900 dark:bg-gray-800">
         <h2 className="text-center text-3xl font-bold capitalize dark:text-slate-100">
           blog entries
         </h2>
         <section
           className={`grid flex-1 auto-rows-max ${
             blogEntries.length > 0
-              ? "grid-cols-[repeat(auto-fill,minmax(250px,1fr))]  xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]"
+              ? "grid-cols-[repeat(auto-fill,minmax(275px,1fr))]  xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]"
               : ""
-          } gap-6 px-4  dark:text-slate-100  md:gap-10`}
+          } gap-6 md:px-4 px-3   dark:text-slate-100  md:gap-10`}
         >
           {blogEntries.length > 0 ? (
             blogEntries.map((blogEntry) => (

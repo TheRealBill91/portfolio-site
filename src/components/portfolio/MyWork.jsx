@@ -52,16 +52,16 @@ export const MyWork = memo(function MyWork() {
                 alt="watch e-commerce store home page"
               ></img>
 
-              <div className=" flex flex-col gap-6 p-6 pt-4 dark:rounded-b-md sm:mt-3 sm:gap-8 xl:h-[168px] ">
-                <p className=" text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl">
+              <div className=" flex flex-col justify-evenly gap-6 p-6 pt-4 dark:rounded-b-md sm:mt-3 sm:gap-8 xl:h-[168px] xl:pb-4 ">
+                <p className=" wrap text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl">
                   {" "}
                   An e-commerce watch store built using Vite & React Router
                 </p>
-                <div className=" flex items-center justify-between px-2  text-slate-900 dark:text-slate-100 sm:px-6 ">
+                <div className=" flex items-center justify-between px-2  text-slate-900 dark:text-slate-100 sm:px-6  ">
                   <h3 className="text-center text-2xl sm:text-3xl ">
                     Timeless{" "}
                   </h3>
-                  <div className="flex gap-5 sm:gap-7">
+                  <div className="flex gap-5  sm:gap-7">
                     <a
                       className="group"
                       aria-label="Github project link"
@@ -104,7 +104,7 @@ export const MyWork = memo(function MyWork() {
                 alt="battleship game home page"
                 className="rounded-md rounded-b-none sm:rounded-b-md lg:h-[300px] lg:w-full lg:object-cover lg:object-top"
               ></img>
-              <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 pt-4 dark:rounded-b-md sm:mt-3 sm:gap-8 ">
+              <div className=" flex flex-col flex-nowrap content-center  gap-6 p-6 pt-4 dark:rounded-b-md sm:mt-3 sm:gap-8 lg:pb-3 ">
                 <p className="text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl ">
                   Classic battleship game built with HTML, CSS, and JavaScript
                 </p>
@@ -154,14 +154,14 @@ export const MyWork = memo(function MyWork() {
                 alt="weather forecast website home page"
                 className="rounded-md rounded-b-none sm:rounded-b-md lg:h-[300px] lg:w-full lg:object-cover lg:object-top"
               ></img>
-              <div className=" flex flex-col flex-nowrap content-center gap-6 p-6 dark:rounded-b-md sm:mt-3 sm:gap-8 ">
+              <div className=" flex flex-col flex-nowrap content-center justify-center gap-6 p-6  dark:rounded-b-md sm:mt-3 sm:gap-8 ">
                 <p className="text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl ">
                   A weather forecast website with searchable locations and
                   different weather metrics
                 </p>
                 <div className="flex items-center justify-between gap-6  text-slate-900 dark:text-slate-100 sm:px-6 ">
-                  <h3 className="text-center text-2xl sm:text-3xl">
-                    Weather Wise{" "}
+                  <h3 className="text-center text-2xl capitalize sm:text-3xl">
+                    weather wise{" "}
                   </h3>
                   <div className="flex gap-5 sm:gap-7">
                     <a
@@ -205,7 +205,7 @@ export const MyWork = memo(function MyWork() {
                 srcSet={`${todolistmd} 767w, ${todolistsml} 500w`}
                 sizes="(max-width: 600px) 500px, (max-width: 900px) 767px, 1138px"
               ></img>
-              <div className=" flex flex-1 flex-col gap-6 p-6 sm:mt-3 sm:gap-8 lg:h-[176px] lg:justify-around">
+              <div className=" flex flex-1 flex-col justify-evenly gap-6 p-6 sm:mt-3 sm:gap-8 lg:h-[176px] lg:justify-around lg:pb-3">
                 <p className="text-center text-lg text-slate-600 dark:text-slate-300 sm:text-xl ">
                   A feature rich, minimalist designed to-do list
                 </p>

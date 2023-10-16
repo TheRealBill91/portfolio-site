@@ -20,9 +20,11 @@ export function parseParagraphLinks(header, para) {
         // Add the link element to the sectionElements array
         sectionElements.push(
           <a
-            className="underline decoration-slate-900 decoration-2 underline-offset-[5px] visited:decoration-slate-600"
+            className="underline decoration-slate-800 decoration-2 underline-offset-[5px] visited:decoration-slate-500 dark:decoration-slate-200 dark:visited:decoration-slate-300"
             href={href}
             title={title}
+            target="_blank"
+            rel="noopener noreferrer"
             key={j}
           >
             {linkText}
@@ -35,7 +37,7 @@ export function parseParagraphLinks(header, para) {
     }
     // Add this paragraph's elements to the paraElements array, wrapped in a <p> tag with some bottom margin
     paraElements.push(
-      <p className="mb-4" key={i}>
+      <p className="mb-4 dark:text-slate-200 text-slate-800" key={i}>
         {sectionElements}
       </p>
     );
