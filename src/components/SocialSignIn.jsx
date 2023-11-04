@@ -2,7 +2,10 @@ import { Icon } from "./Icon";
 
 export function SocialSignIn() {
   const handleSignInClick = () => {
-    window.open("http://localhost:3000/client/auth/login/google", "_self");
+    window.open(
+      `${import.meta.env.VITE_API_URL}/client/auth/login/google`,
+      "_self"
+    );
   };
   return (
     <>
