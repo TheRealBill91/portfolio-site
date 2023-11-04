@@ -20,6 +20,8 @@ export function SignUp() {
   const serverErrors = useActionData();
   const submitting = navigation.state === "submitting";
 
+  const signUpButtonName = submitting ? "Signing up" : "Sign up";
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (submitting) {
@@ -157,7 +159,7 @@ export function SignUp() {
                       </span>
                     )}
                   </div>
-                  <AuthButton submitting={submitting} name={"Sign up"} />
+                  <AuthButton submitting={submitting} name={signUpButtonName} />
                 </div>
               </Form>
             </div>

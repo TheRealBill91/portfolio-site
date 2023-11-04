@@ -11,6 +11,7 @@ import { signUpValidationAction } from "./actions/authActions";
 import { signInAction } from "./actions/authActions";
 import { blogEntriesLoader, blogPostLoader } from "./loaders/blogLoaders";
 import { blogPostAction } from "./actions/blogPostActions";
+import { googleLoginSuccess } from "./loaders/googleLoginSuccess";
 
 export const RouteSwitch = () => {
   const router = createBrowserRouter([
@@ -58,6 +59,10 @@ export const RouteSwitch = () => {
               path: "signup",
               element: <SignUp />,
               action: signUpValidationAction,
+            },
+            {
+              path: "google/loginsuccess",
+              loader: googleLoginSuccess,
             },
           ],
         },

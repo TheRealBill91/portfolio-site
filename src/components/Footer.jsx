@@ -2,23 +2,7 @@ import { memo } from "react";
 import { SocialLinks } from "./portfolio/SocialLinks";
 import { motion } from "framer-motion";
 
-const cardVariants = {
-  offscreen: {
-    y: 80,
-    opacity: 0,
-  },
-  onscreen: {
-    y: 0,
-    rotate: 0,
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.2,
-      duration: 1,
-      ease: "ease-in",
-    },
-  },
-};
+import { cardVariants } from "../utils/FramerVariants/PortfolioVariants";
 
 export const Footer = memo(function Footer() {
   return (
@@ -42,7 +26,6 @@ export const Footer = memo(function Footer() {
             development and providing value to customers, please get in touch.
           </p>
         </motion.div>
-        {/* <p>Email: emailplaceholder</p> */}
         <SocialLinks />
       </footer>
     </motion.div>

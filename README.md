@@ -1,6 +1,6 @@
 # portfolio-site
 
-A responsive personal portfolio site that showcases my web development skills and projects. Created with Vite, Vitest, Tailwind CSS, &amp; Google Fonts.
+A responsive personal portfolio site that showcases my web development skills and projects. Created with Vite, Vitest, React, React Router, Tailwind CSS, &amp; Google Fonts.
 
 ## About
 
@@ -24,7 +24,7 @@ The blog section is an interactive space where I share my experiences, learnings
 - How to make my site accessible by using semantic HTML & other accessibility best practices
 - Using Tailwind CSS to style my website in an efficient manner
 - CSS animations
-- Utilize React Router (6.4) and it's Data API's to communicate with a RESTful API
+- Leverage React Router (6.4) and its Data APIs for interaction with a RESTful API.
 - Implement client and server side form validation
 - Optimistic UI for blog comment upvotes
 

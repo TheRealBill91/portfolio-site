@@ -4,6 +4,7 @@ import { AuthButton } from "../../../components/AuthButton";
 import { AuthContext } from "../../../contexts/AuthContext";
 import { Wrapper } from "../../../components/Wrapper";
 import { BackButton } from "../../../components/blog/BackButton";
+import { SocialSignIn } from "../../../components/SocialSignIn";
 
 export function SignIn() {
   const { auth } = useContext(AuthContext);
@@ -78,6 +79,7 @@ export function SignIn() {
                   <AuthButton submitting={submitting} name={signInButtonName} />
                 </div>
               </Form>
+              <SocialSignIn />
             </div>
           </div>
         </main>

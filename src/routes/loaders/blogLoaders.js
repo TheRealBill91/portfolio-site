@@ -17,7 +17,9 @@ export async function blogPostLoader({ params }) {
     },
   };
   const commentsFetchDetails = {
-    url: `${import.meta.env.VITE_API_URL}/client/${params.postId}/blog_comments`,
+    url: `${import.meta.env.VITE_API_URL}/client/${
+      params.postId
+    }/blog_comments`,
     options: {
       mode: "cors",
       credentials: "include",
