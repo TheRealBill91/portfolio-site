@@ -1,8 +1,12 @@
 import { parseBlogContent } from "../../utils/blogParsers/parseBlogContent";
 import { BlogContentSection } from "./BlogContentSection";
 import DOMPurify from "dompurify";
+import { forwardRef } from "react";
 
-export function BlogContent({ blogContentHTML }) {
+export const BlogContent = forwardRef(function BlogContent(
+  { blogContentHTML },
+  ref
+) {
   const cleanHTML = DOMPurify.sanitize(blogContentHTML);
   const sections = parseBlogContent(cleanHTML);
 
@@ -14,5 +18,9 @@ export function BlogContent({ blogContentHTML }) {
     return <BlogContentSection key={i} header={title} para={content} />;
   });
 
-  return <div className="max-w-prose  self-center px-3">{components}</div>;
-}
+  return (
+    <div ref={ref} className="max-w-prose self-center px-3">
+      {components}
+    </div>
+  );
+});

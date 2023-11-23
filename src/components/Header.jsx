@@ -34,7 +34,7 @@ export function Header(props) {
 
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/client/auth/logout`,
+        `${import.meta.env.VITE_API_URL}/v1/client/auth/logout`,
         {
           mode: "cors",
           method: "POST",

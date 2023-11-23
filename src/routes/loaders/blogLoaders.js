@@ -1,6 +1,6 @@
 export async function blogEntriesLoader() {
   const blogEntries = await fetch(
-    `${import.meta.env.VITE_API_URL}/client/blog_entries`,
+    `${import.meta.env.VITE_API_URL}/v1/client/blog_entries`,
     {
       mode: "cors",
     }
@@ -11,13 +11,13 @@ export async function blogEntriesLoader() {
 
 export async function blogPostLoader({ params }) {
   const postFetchDetails = {
-    url: `${import.meta.env.VITE_API_URL}/client/${params.postId}`,
+    url: `${import.meta.env.VITE_API_URL}/v1/client/${params.postId}`,
     options: {
       mode: "cors",
     },
   };
   const commentsFetchDetails = {
-    url: `${import.meta.env.VITE_API_URL}/client/${
+    url: `${import.meta.env.VITE_API_URL}/v1/client/${
       params.postId
     }/blog_comments`,
     options: {

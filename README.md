@@ -8,7 +8,7 @@ This is a responsive personal portfolio and blog site that equally showcases my 
 
 The portfolio section features a collection of my projects with links to their live demos and GitHub repositories. Each project reflects my ability to create diverse web applications using various technologies.
 
-The blog section is an interactive space where I share my experiences, learnings, and thoughts on web development and other topics of interest. It allows users to read, comment on, and upvote my posts, fostering an engaging community.
+The blog section is an interactive space where I share my experiences, learnings, and thoughts on web development and other topics of interest. It allows users to read, comment on, and upvote my posts, fostering an engaging community. You can check out the blog api code [here](https://github.com/TheRealBill91/blog-api). 
 
 ## Features
 

@@ -2,7 +2,7 @@ import { redirect } from "react-router-dom";
 
 export async function googleLoginSuccess() {
   const response = await fetch(
-    `${import.meta.env.VITE_API_URL}/client/auth/google_login/success`,
+    `${import.meta.env.VITE_API_URL}/v1/client/auth/google_login/success`,
     {
       method: "GET",
       credentials: "include",

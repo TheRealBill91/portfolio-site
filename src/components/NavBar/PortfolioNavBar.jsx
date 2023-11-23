@@ -31,6 +31,7 @@ export function PortfolioNavBar() {
         contact
         <li className="duration-400 h-1 max-w-0 bg-slate-900 transition-all group-hover:max-w-full group-hover:bg-slate-800 dark:bg-slate-100 dark:group-hover:bg-slate-200 "></li>
       </a>
+      <div className="h-8 border-r border-slate-900 dark:border-slate-100"></div>
       <Link
         className="group text-slate-900 transition hover:text-slate-800 dark:text-slate-100 "
         to={"/blog"}

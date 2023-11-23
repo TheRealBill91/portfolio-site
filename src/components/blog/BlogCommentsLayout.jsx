@@ -4,7 +4,7 @@ import { LikeButton } from "./LikeButton";
 
 export function BlogCommentsLayout({ blogComments }) {
   return (
-    <section className="lg:self-left my-4 max-w-prose px-3 pl-1 sm:flex sm:flex-col sm:items-center sm:self-center lg:min-w-[65ch] lg:pl-2">
+    <section className="lg:self-left my-4 max-w-prose px-3 pl-1 sm:flex sm:flex-col sm:items-center  sm:self-center  lg:min-w-[65ch] lg:pl-2">
       <h2 className="mx-2 mb-3  text-2xl font-semibold text-slate-900 dark:text-slate-100 sm:self-start">
         Comments
       </h2>

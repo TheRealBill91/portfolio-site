@@ -15,7 +15,7 @@ export async function signUpValidationAction({ request }) {
   }
 
   const response = await fetch(
-    `${import.meta.env.VITE_API_URL}/client/users/signup`,
+    `${import.meta.env.VITE_API_URL}/v1/client/users/signup`,
     {
       mode: "cors",
       method: "POST",
@@ -26,7 +26,7 @@ export async function signUpValidationAction({ request }) {
         password,
         passwordConfirmation,
       }),
-      credentials: "include",
+      // credentials: "include",
     }
   );
 
@@ -50,7 +50,7 @@ export async function signInAction({ request }) {
   }
 
   const response = await fetch(
-    `${import.meta.env.VITE_API_URL}/client/auth/login`,
+    `${import.meta.env.VITE_API_URL}/v1/client/auth/login`,
     {
       mode: "cors",
       method: "POST",

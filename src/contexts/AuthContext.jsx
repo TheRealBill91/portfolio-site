@@ -10,7 +10,7 @@ export function AuthProvider({ children }) {
     async function checkAuthStatus() {
       try {
         const response = await fetch(
-          `${import.meta.env.VITE_API_URL}/client/users/authstatus`,
+          `${import.meta.env.VITE_API_URL}/v1/client/users/authstatus`,
           {
             mode: "cors",
             method: "GET",

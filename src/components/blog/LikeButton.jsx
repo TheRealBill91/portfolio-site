@@ -9,9 +9,12 @@ export function LikeButton({ comment }) {
   const { auth } = useContext(AuthContext);
 
   // optimistically update the like status
+
+  // if there is `formData` then it is posting to the action
   const liked = fetcher.formData
     ? fetcher.formData.get("liked") === "yes"
-    : comment.liked;
+    : // if its not posting to the action, use the record's value
+      comment.liked;
 
   let upvoteCount;
   if (auth && fetcher.formData) {

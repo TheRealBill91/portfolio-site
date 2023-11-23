@@ -17,7 +17,7 @@ export function BlogCommentForm() {
   }, [isSubmitting]);
 
   return (
-    <section className="py-3 lg:min-w-[65ch] lg:self-center ">
+    <section className="flex flex-col justify-center py-3 sm:px-20 lg:min-w-[65ch] lg:self-center ">
       <h2 className="mx-4 mb-1 text-2xl font-semibold capitalize text-slate-900 dark:text-slate-100 ">
         add a comment
       </h2>

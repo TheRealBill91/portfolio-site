@@ -28,7 +28,7 @@ export async function blogPostAction({ request, params }) {
 
 async function likeComment(commentId) {
   const likeFetchDetails = {
-    url: `${import.meta.env.VITE_API_URL}/client/${commentId}/comment_upvote`,
+    url: `${import.meta.env.VITE_API_URL}/v1/client/${commentId}/comment_upvote`,
     options: {
       mode: "cors",
       credentials: "include",
@@ -48,7 +48,7 @@ async function likeComment(commentId) {
 
 async function createComment(params, content) {
   const commentCreationFetchDetails = {
-    url: `${import.meta.env.VITE_API_URL}/client/${
+    url: `${import.meta.env.VITE_API_URL}/v1/client/${
       params.postId
     }/comment_creation`,
     options: {
