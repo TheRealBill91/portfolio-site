@@ -17,7 +17,7 @@ export function SocialSignIn() {
         </div>
         <div className="relative flex justify-center text-sm capitalize">
           <p className=" bg-gray-300 px-3 text-gray-700 dark:bg-gray-500 dark:text-slate-100">
-            or sigin with
+            or sign in with
           </p>
         </div>
       </div>
