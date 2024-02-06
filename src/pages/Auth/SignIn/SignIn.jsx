@@ -40,7 +40,7 @@ export function SignIn() {
                       Email
                     </label>
                     <input
-                      className="peer w-full rounded-md p-2 dark:bg-slate-50  [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-800"
+                      className="peer h-[54px] w-full rounded-md p-2 dark:bg-slate-50  [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-800"
                       name="email"
                       placeholder="username@example.com"
                       type="email"
@@ -59,7 +59,7 @@ export function SignIn() {
                       Password
                     </label>
                     <input
-                      className=" peer w-full rounded-md p-2 placeholder:text-white dark:bg-slate-50 dark:placeholder:text-slate-50   [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-800   "
+                      className=" peer h-[54px] w-full rounded-md p-2 placeholder:text-white dark:bg-slate-50 dark:placeholder:text-slate-50   [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-solid [&:not(:focus)]:[&:not(:placeholder-shown)]:invalid:border-red-800   "
                       name="password"
                       id="password"
                       type="password"

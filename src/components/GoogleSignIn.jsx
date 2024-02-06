@@ -15,7 +15,7 @@ export function GoogleSignIn() {
       </div>
       <div className="mt-4 flex items-center justify-center">
         <button className="flex w-[140px] items-center gap-4 rounded-lg border border-gray-600 bg-white p-2 px-3 text-lg shadow-sm">
-          <Icon id="Google" className="h-6 w-6 text-gray-700" />
+          <Icon id="google" className="h-6 w-6 text-gray-700" />
           Sign In
         </button>
       </div>

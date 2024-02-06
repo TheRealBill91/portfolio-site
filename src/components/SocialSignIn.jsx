@@ -22,11 +22,16 @@ export function SocialSignIn() {
         </div>
       </div>
       <div className="mt-4 flex items-center justify-center">
-        <button onClick={handleSignInClick} className="">
-          <a className="flex w-[140px] items-center gap-4 rounded-lg border border-gray-600 bg-white p-2 px-3 text-lg shadow-sm">
-            <Icon id="Google" className="h-6 w-6 text-gray-700" />
-            Sign In
-          </a>
+        <button
+          onClick={handleSignInClick}
+          className="mb-2 flex h-[54px] w-[140px] items-center gap-2 rounded-lg bg-white p-2 px-3 text-lg text-gray-700 shadow-sm hover:text-black"
+        >
+          <Icon
+            id="google"
+            className="h-9 w-9 fill-current text-transparent"
+            fill="currentColor"
+          />
+          Sign In
         </button>
       </div>
     </>

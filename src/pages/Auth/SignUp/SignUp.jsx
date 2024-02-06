@@ -70,7 +70,7 @@ export function SignUp() {
                       Username
                     </label>
                     <input
-                      className="w-full rounded-md bg-slate-50 p-2 placeholder:text-slate-400 dark:bg-slate-100"
+                      className="h-[54px] w-full rounded-md bg-slate-50 p-2 placeholder:text-slate-400 dark:bg-slate-100"
                       name="username"
                       placeholder="beebop123"
                       type="text"
@@ -91,7 +91,7 @@ export function SignUp() {
                       Email
                     </label>
                     <input
-                      className="w-full rounded-md bg-slate-50 p-2 placeholder:text-slate-400"
+                      className="h-[54px] w-full rounded-md bg-slate-50 p-2 placeholder:text-slate-400"
                       name="email"
                       placeholder="username@example.com"
                       type="email"
@@ -113,7 +113,7 @@ export function SignUp() {
                       Password
                     </label>
                     <input
-                      className="w-full rounded-md bg-slate-50 p-2  dark:bg-slate-100"
+                      className="h-[54px] w-full rounded-md bg-slate-50 p-2  dark:bg-slate-100"
                       name="password"
                       id="password"
                       type="password"
@@ -137,7 +137,7 @@ export function SignUp() {
                       Confirm Password
                     </label>
                     <input
-                      className="w-full rounded-md border bg-slate-50  px-2 py-2 pr-8  focus:border focus:border-black "
+                      className="h-[54px] w-full rounded-md border bg-slate-50  px-2 py-2 pr-8  focus:border focus:border-black "
                       name="passwordConfirmation"
                       id="passwordConfirmation"
                       type="password"
