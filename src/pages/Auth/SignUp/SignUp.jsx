@@ -8,14 +8,11 @@ import {
 } from "react-router-dom";
 import { validateForm } from "../../../utils/signUpValidation";
 import { Wrapper } from "../../../components/Wrapper";
-import { BackButton } from "../../../components/blog/BackButton";
 
 export function SignUp() {
   const [clientErrors, setClientErrors] = useState({});
   const navigation = useNavigation();
   const submit = useSubmit();
-
-  const navTo = "/blog";
 
   const serverErrors = useActionData();
   const submitting = navigation.state === "submitting";
@@ -57,15 +54,14 @@ export function SignUp() {
     <>
       <Wrapper>
         <main className="flex min-h-screen flex-1 flex-col   items-center bg-slate-50 px-8  py-14 dark:bg-gray-800">
-          <BackButton navTo={navTo} />
-          <div className="mt-8 justify-start">
+          <div className="mt-4 justify-start">
             <h1 className="my-3 text-center text-2xl font-bold capitalize text-gray-700 dark:text-slate-100">
               sign up today
             </h1>
             <div className="w-full flex-col rounded-xl bg-gray-300 px-10 py-8 shadow-md shadow-gray-200 dark:bg-gray-500 dark:shadow-gray-500 md:min-w-[400px] md:max-w-[500px] md:justify-center md:self-center">
               <Form noValidate onSubmit={handleSubmit} method="POST">
                 <div className="mb-3 flex flex-col gap-4">
-                  <div className="mx-2 flex flex-col gap-2 text-gray-700">
+                  <div className="flex flex-col gap-2 text-gray-700">
                     <label className="dark:text-slate-50" htmlFor="username">
                       Username
                     </label>
@@ -86,7 +82,7 @@ export function SignUp() {
                       </span>
                     )}
                   </div>
-                  <div className="mx-2 flex flex-col gap-2 text-gray-700">
+                  <div className="flex flex-col gap-2 text-gray-700">
                     <label className="dark:text-slate-50" htmlFor="email">
                       Email
                     </label>
@@ -108,7 +104,7 @@ export function SignUp() {
                     )}
                   </div>
 
-                  <div className="mx-2 mb-3 flex flex-col gap-2 text-gray-700">
+                  <div className="mb-3 flex flex-col gap-2 text-gray-700">
                     <label className="dark:text-slate-50" htmlFor="password">
                       Password
                     </label>
@@ -129,7 +125,7 @@ export function SignUp() {
                       </span>
                     )}
                   </div>
-                  <div className="mx-2 mb-3 flex flex-col gap-2 text-gray-700">
+                  <div className="mb-3 flex flex-col gap-2 text-gray-700">
                     <label
                       className="dark:text-slate-50"
                       htmlFor="passwordConfirmation"

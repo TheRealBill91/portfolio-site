@@ -1,5 +1,4 @@
 import { useLoaderData } from "react-router-dom";
-import { BackButton } from "../../components/blog/BackButton";
 import { BlogContent } from "../../components/blog/BlogContent";
 import { BlogCommentsLayout } from "../../components/blog/BlogCommentsLayout";
 import { BlogCommentForm } from "../../components/blog/BlogCommentForm";
@@ -13,7 +12,7 @@ export function BlogPost() {
 
   const { scrollYProgress } = useScroll({
     target: ref,
-     offset: ["start start", "end start"],
+    offset: ["start start", "end start"],
   });
 
   const scaleX = useSpring(scrollYProgress, {
@@ -26,17 +25,15 @@ export function BlogPost() {
   const datePublished = postData.formatted_date_stamp;
   const { auth } = useContext(AuthContext);
 
-  const navTo = "/blog";
   return (
     <>
       <main className="flex flex-1 flex-col bg-gray-100/50 px-5 py-10 text-slate-900 dark:bg-slate-800 lg:px-10  ">
-        <BackButton navTo={navTo} />
         <motion.div
           className="fixed left-0 right-0 top-0 h-1 origin-left transform bg-slate-700 dark:bg-slate-300  "
           style={{ scaleX }}
         ></motion.div>
         <div
-          className="my-3 mt-10 flex flex-col gap-3 self-center
+          className="my-3 mt-6 flex flex-col gap-3 self-center
          px-2 py-6 text-center dark:text-slate-100"
         >
           <h2 className="text-3xl font-semibold">{postData.title}</h2>

@@ -65,7 +65,7 @@ export function Header(props) {
       ) : null}
 
       <header className={` bg-gray-400/70 shadow-sm dark:bg-gray-500 `}>
-        <div className="content-left md:h-18 relative flex  h-20  items-center justify-between border-none   pl-1   text-left  outline-none  sm:h-24 md:px-10 md:py-2  lg:px-12 ">
+        <div className="content-left h-18 relative  flex  items-center justify-between border-none   pl-1   text-left  outline-none  sm:h-20 md:px-10 md:py-4  lg:px-12 ">
           <h1 className=" self-center p-4 text-4xl font-medium italic text-slate-900 dark:text-slate-100 sm:text-5xl ">
             BC
           </h1>
@@ -101,7 +101,7 @@ export function Header(props) {
             animate={mobileMenuVisible ? "open" : "closed"}
             className={`${
               mobileMenuVisible ? " right-12 z-10" : ""
-            } absolute right-4 top-6 fill-slate-900 text-slate-900`}
+            } absolute right-4 top-[1.2rem] fill-slate-900 text-slate-900`}
           >
             <MobileMenuBtn
               mobileMenuVisible={mobileMenuVisible}

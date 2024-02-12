@@ -22,8 +22,9 @@ export const Footer = memo(function Footer() {
         </motion.div>
         <motion.div variants={cardVariants}>
           <p className="px-2 text-center text-lg leading-7 sm:mx-6 sm:text-xl lg:mx-2">
-            If your interested in working with someone <em>dedicated</em> to web
-            development and providing value to customers, please get in touch.
+            If you&apos;re interested in working with someone <em>dedicated</em>{" "}
+            to web development and providing value to customers, please get in
+            touch.
           </p>
         </motion.div>
         <SocialLinks />

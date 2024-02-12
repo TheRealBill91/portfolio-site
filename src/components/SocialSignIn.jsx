@@ -24,7 +24,7 @@ export function SocialSignIn() {
       <div className="mt-4 flex items-center justify-center">
         <button
           onClick={handleSignInClick}
-          className="mb-2 flex h-[54px] w-[140px] items-center gap-2 rounded-lg bg-white p-2 px-3 text-lg text-gray-700 shadow-sm hover:text-black"
+          className="mb-2 flex h-[54px] w-full items-center justify-center gap-2 rounded-lg bg-white p-2 px-3 text-lg text-gray-700 shadow-sm hover:text-black"
         >
           <Icon
             id="google"
