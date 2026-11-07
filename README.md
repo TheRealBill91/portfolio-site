@@ -3,7 +3,7 @@
 Single-page personal site built with [Astro](https://astro.build) and Tailwind CSS, deployed to Cloudflare.
 
 - Content: `src/data/profile.ts`
-- Page: `src/pages/index.astro`
+- Page: `src/pages/index.astro` (fonts: Instrument Serif, Geist, Geist Mono)
 - Styles & color tokens: `src/styles/global.css`
 - Link-preview image: `scripts/og/card.html` → `public/og.png` (run `npm run og` after changing your name or title)
 
