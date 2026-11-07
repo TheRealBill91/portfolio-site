@@ -5,7 +5,7 @@ Single-page personal site built with [Astro](https://astro.build) and Tailwind C
 - Content: `src/data/profile.ts`
 - Page: `src/pages/index.astro` (fonts: Instrument Serif, Geist, Geist Mono)
 - Styles & color tokens: `src/styles/global.css`
-- Link-preview image: `scripts/og/card.html` → `public/og.png` (run `npm run og` after changing your name or title)
+- Link-preview image: `scripts/og/card.html` → `public/og.png` (run `npm run og` after changing your name or title, then bump `?v=` in `index.astro`)
 
 ```bash
 npm install

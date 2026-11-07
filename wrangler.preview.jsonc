@@ -1,9 +1,0 @@
-// Separate Worker for trying out designs at v2.billycummings.com
-// without touching production (wrangler.jsonc). Deploy with: npm run deploy:preview
-{
-  "name": "portfolio-site-preview",
-  "compatibility_date": "2026-11-01",
-  "assets": { "directory": "./dist", "not_found_handling": "404-page" },
-  "workers_dev": false,
-  "routes": [{ "pattern": "v2.billycummings.com", "custom_domain": true }]
-}

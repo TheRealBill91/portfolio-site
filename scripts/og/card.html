@@ -4,57 +4,50 @@
   <head>
     <meta charset="utf-8" />
     <style>
-      @font-face {
-        font-family: "Inter";
-        src: url("../../node_modules/@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2");
-        font-weight: 100 900;
-      }
+      @font-face { font-family: "Instrument Serif"; src: url("../../node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-normal.woff2"); }
+      @font-face { font-family: "Instrument Serif"; font-style: italic; src: url("../../node_modules/@fontsource/instrument-serif/files/instrument-serif-latin-400-italic.woff2"); }
+      @font-face { font-family: "Geist Mono"; src: url("../../node_modules/@fontsource-variable/geist-mono/files/geist-mono-latin-wght-normal.woff2"); font-weight: 100 900; }
       * { margin: 0; box-sizing: border-box; }
       html, body { width: 1200px; height: 630px; overflow: hidden; }
       body {
-        font-family: "Inter", sans-serif;
-        font-feature-settings: "cv11", "ss01";
-        -webkit-font-smoothing: antialiased;
-        background:
-          radial-gradient(900px 520px at 100% 0%, rgba(138, 167, 255, 0.16), transparent 60%),
-          radial-gradient(700px 420px at 0% 100%, rgba(138, 167, 255, 0.06), transparent 60%),
-          #0c0c0e;
-        color: #ececee;
-        padding: 80px 88px;
+        background: #0e0f0d;
+        color: #ecebe4;
+        padding: 64px 80px 60px;
         display: flex;
         flex-direction: column;
+        -webkit-font-smoothing: antialiased;
       }
-      /* Faint grid texture, masked so it fades out toward the bottom-left. */
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        background-image:
-          linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-        background-size: 48px 48px;
-        mask-image: radial-gradient(800px 500px at 100% 0%, black, transparent 75%);
-      }
+      .mono { font-family: "Geist Mono", monospace; font-size: 20px; letter-spacing: 0.14em; text-transform: uppercase; color: #908f87; }
+      .top { display: flex; justify-content: space-between; padding-bottom: 22px; border-bottom: 1px solid #262722; }
+      .now { display: flex; align-items: center; gap: 12px; }
+      .dot { width: 10px; height: 10px; border-radius: 50%; background: #5fcf94; }
       .intro { margin: auto 0; }
-      h1 { font-size: 92px; font-weight: 650; letter-spacing: -0.035em; line-height: 1; }
-      .role { margin-top: 26px; font-size: 36px; color: #9a9aa3; letter-spacing: -0.01em; }
-      .footer { display: flex; align-items: center; justify-content: space-between; font-size: 26px; color: #9a9aa3; }
-      .now { display: flex; align-items: center; gap: 14px; }
-      .dot { width: 12px; height: 12px; border-radius: 50%; background: #10b981; box-shadow: 0 0 0 6px rgba(16,185,129,0.15); }
-      .rule { height: 1px; background: #232327; margin-bottom: 36px; }
+      h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 150px; line-height: 0.95; letter-spacing: -0.02em; }
+      h1 em { color: #908f87; }
+      .role { margin-top: 26px; }
+      .role b { color: #5fcf94; font-weight: 400; }
+      .bars { display: flex; gap: 4px; height: 40px; }
+      .bars span { flex: 1; background: #5fcf94; opacity: 0.8; border-radius: 1px; }
+      .bars span.warn { background: #e0a84a; opacity: 0.9; }
     </style>
   </head>
   <body>
+    <div class="top mono">
+      <span>billycummings.com</span>
+      <span class="now"><span class="dot"></span>Currently at i3 Broadband</span>
+    </div>
     <div class="intro">
-      <h1>Bill Cummings</h1>
-      <p class="role">Network Operations Analyst — Reporting &amp; Analysis</p>
+      <h1>Bill <em>Cummings</em></h1>
+      <p class="role mono">Network Operations Analyst <b>/</b> Reporting &amp; Analysis</p>
     </div>
-    <div>
-      <div class="rule"></div>
-      <div class="footer">
-        <span>billycummings.com</span>
-        <span class="now"><span class="dot"></span>Currently at i3 Broadband</span>
-      </div>
-    </div>
+    <div class="bars" id="bars"></div>
+    <script>
+      const bars = document.getElementById("bars");
+      for (let i = 0; i < 64; i++) {
+        const s = document.createElement("span");
+        if (i === 20 || i === 45) s.className = "warn";
+        bars.append(s);
+      }
+    </script>
   </body>
 </html>

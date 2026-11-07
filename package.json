@@ -7,8 +7,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "og": "scripts/og/generate.sh",
-    "deploy:preview": "PUBLIC_NOINDEX=1 npm run build && wrangler deploy --config wrangler.preview.jsonc"
+    "og": "scripts/og/generate.sh"
   },
   "dependencies": {
     "@fontsource-variable/geist": "^5.3.0",

@@ -9,7 +9,7 @@ const shareTitle = `${profile.name} — ${profile.headline.split(" — ")[0]}`;
 // Preview images must be absolute URLs; Astro.site comes from astro.config.mjs.
 const siteUrl = new URL("/", Astro.site).href;
 // Bump ?v= whenever og.png changes so apps that cached the old preview fetch the new one.
-const ogImage = new URL("/og.png?v=2", Astro.site).href;
+const ogImage = new URL("/og.png?v=3", Astro.site).href;
 const year = new Date().getFullYear();
 const current = profile.experience.find((role) => role.current);
 const [firstName, ...rest] = profile.name.split(" ");
@@ -46,7 +46,6 @@ const pad = (n: number) => String(n).padStart(2, "0");
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    {import.meta.env.PUBLIC_NOINDEX && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={siteUrl} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -63,7 +62,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
   <body class="font-sans">
     <div class="mx-auto max-w-6xl px-6 sm:px-10">
       <!-- Top bar -->
-      <div class="reveal flex items-center justify-between border-b border-[var(--faint)] py-5 font-mono text-[0.7rem] tracking-[0.14em] text-[var(--muted)] uppercase" style="--i: 0">
+      <div class="reveal flex items-center justify-between border-b border-[var(--faint)] py-5 font-mono text-label tracking-[0.14em] text-[var(--muted)] uppercase" style="--i: 0">
         <span>billycummings.com</span>
         <div class="flex items-center gap-5">
           <span class="hidden items-center gap-2 sm:inline-flex">
@@ -78,7 +77,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
         <!-- Hero -->
         <header class="grid gap-10 pt-16 pb-14 sm:pt-24 lg:grid-cols-12 lg:gap-8 lg:pb-20">
           <div class="lg:col-span-7">
-            <p class="reveal font-mono text-xs tracking-[0.14em] text-[var(--muted)] uppercase" style="--i: 1">
+            <p class="reveal font-mono text-meta tracking-[0.14em] text-[var(--muted)] uppercase" style="--i: 1">
               {role}<span class="text-[var(--accent)]"> / </span>{focus}
             </p>
             <h1 class="reveal mt-6 font-serif text-[clamp(4.25rem,14vw,9.5rem)] leading-[0.86] tracking-[-0.02em]" style="--i: 2">
@@ -103,7 +102,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
               </a>
               {
                 current && (
-                  <span class="inline-flex items-center gap-2 font-mono text-xs tracking-wide text-[var(--muted)]">
+                  <span class="inline-flex items-center gap-2 font-mono text-meta tracking-wide text-[var(--muted)]">
                     <span class="relative flex size-2">
                       <span class="absolute inline-flex size-full animate-ping rounded-full bg-[var(--accent)] opacity-50 motion-reduce:hidden" />
                       <span class="relative inline-flex size-2 rounded-full bg-[var(--accent)]" />
@@ -132,7 +131,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
               ))
             }
           </div>
-          <div class="mt-3 flex justify-between font-mono text-[0.68rem] tracking-[0.14em] text-[var(--muted)] uppercase">
+          <div class="mt-3 flex justify-between font-mono text-label tracking-[0.14em] text-[var(--muted)] uppercase">
             <span>Signal</span>
             <span>All systems operational</span>
           </div>
@@ -140,7 +139,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
         <!-- About -->
         <section class="grid gap-6 border-t border-[var(--fg)] pt-6 pb-20 lg:grid-cols-12 lg:gap-8 lg:pb-28" aria-labelledby="about">
-          <h2 id="about" class="font-mono text-xs tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
+          <h2 id="about" class="font-mono text-label tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
             <span class="text-[var(--fg)]">01</span> — About
           </h2>
           <div class="space-y-6 lg:col-span-8">
@@ -155,19 +154,19 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
         <!-- Experience -->
         <section class="grid gap-6 border-t border-[var(--fg)] pt-6 pb-20 lg:grid-cols-12 lg:gap-8 lg:pb-28" aria-labelledby="experience">
-          <h2 id="experience" class="font-mono text-xs tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
+          <h2 id="experience" class="font-mono text-label tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
             <span class="text-[var(--fg)]">02</span> — Experience
           </h2>
           <ol class="lg:col-span-8">
             {
               profile.experience.map((item) => (
                 <li class="grid gap-3 border-b border-[var(--faint)] py-8 first:pt-0 last:border-b-0 sm:grid-cols-[8rem_1fr] sm:gap-6">
-                  <p class="font-mono text-xs tracking-wide text-[var(--muted)] tabular-nums sm:pt-2.5">
+                  <p class="font-mono text-meta tracking-wide text-[var(--muted)] tabular-nums sm:pt-2.5">
                     {item.start === item.end ? item.start : `${item.start} – ${item.end}`}
                   </p>
                   <div>
                     <h3 class="font-serif text-[1.85rem] leading-tight">{item.title}</h3>
-                    <p class="mt-1.5 flex items-center gap-2 font-mono text-xs tracking-[0.12em] text-[var(--muted)] uppercase">
+                    <p class="mt-1.5 flex items-center gap-2 font-mono text-meta tracking-[0.12em] text-[var(--muted)] uppercase">
                       {item.company}
                       {item.current && (
                         <span class="inline-flex items-center gap-1.5 text-[var(--accent)]">
@@ -195,17 +194,17 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
         <!-- Education -->
         <section class="grid gap-6 border-t border-[var(--fg)] pt-6 pb-20 lg:grid-cols-12 lg:gap-8 lg:pb-28" aria-labelledby="education">
-          <h2 id="education" class="font-mono text-xs tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
+          <h2 id="education" class="font-mono text-label tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
             <span class="text-[var(--fg)]">03</span> — Education
           </h2>
           <ul class="lg:col-span-8">
             {
               profile.education.map((item) => (
                 <li class="grid gap-3 sm:grid-cols-[8rem_1fr] sm:gap-6">
-                  <p class="font-mono text-xs tracking-wide text-[var(--muted)] tabular-nums sm:pt-2.5">{item.year}</p>
+                  <p class="font-mono text-meta tracking-wide text-[var(--muted)] tabular-nums sm:pt-2.5">{item.year}</p>
                   <div>
                     <h3 class="font-serif text-[1.85rem] leading-tight">{item.degree}</h3>
-                    <p class="mt-1.5 font-mono text-xs tracking-[0.12em] text-[var(--muted)] uppercase">
+                    <p class="mt-1.5 font-mono text-meta tracking-[0.12em] text-[var(--muted)] uppercase">
                       {item.school}
                       {item.note && <span class="text-[var(--accent)]"> · {item.note}</span>}
                     </p>
@@ -218,14 +217,14 @@ const pad = (n: number) => String(n).padStart(2, "0");
 
         <!-- Skills -->
         <section class="grid gap-6 border-t border-[var(--fg)] pt-6 pb-20 lg:grid-cols-12 lg:gap-8 lg:pb-28" aria-labelledby="skills">
-          <h2 id="skills" class="font-mono text-xs tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
+          <h2 id="skills" class="font-mono text-label tracking-[0.14em] text-[var(--muted)] uppercase lg:col-span-4">
             <span class="text-[var(--fg)]">04</span> — Skills
           </h2>
           <ol class="grid sm:grid-cols-2 sm:gap-x-10 lg:col-span-8">
             {
               profile.skills.map((skill, i) => (
                 <li class="flex items-baseline gap-4 border-b border-[var(--faint)] py-3.5">
-                  <span class="font-mono text-[0.7rem] text-[var(--muted)] tabular-nums">{pad(i + 1)}</span>
+                  <span class="font-mono text-label text-[var(--muted)] tabular-nums">{pad(i + 1)}</span>
                   <span class="text-[1.05rem]">{skill}</span>
                 </li>
               ))
@@ -245,7 +244,7 @@ const pad = (n: number) => String(n).padStart(2, "0");
           <span class="link pb-1">Let's <em>connect</em></span>
           <span aria-hidden="true" class="text-[0.6em] text-[var(--accent)] transition group-hover:translate-x-2">→</span>
         </a>
-        <div class="mt-16 flex flex-wrap justify-between gap-4 font-mono text-[0.7rem] tracking-[0.14em] text-[var(--muted)] uppercase">
+        <div class="mt-16 flex flex-wrap justify-between gap-4 font-mono text-label tracking-[0.14em] text-[var(--muted)] uppercase">
           <span>© {year} {profile.name}</span>
           <a href="#top" class="link">Back to top ↑</a>
         </div>

@@ -10,6 +10,11 @@
   --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
   --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, "SF Mono", monospace;
+
+  /* Two small sizes only: uppercase section/status labels, and readable metadata
+     (dates, company names). Used as text-label and text-meta. */
+  --text-label: 0.75rem;
+  --text-meta: 0.8125rem;
 }
 
 /* Color tokens: warm paper and ink, with a "signal green" accent
