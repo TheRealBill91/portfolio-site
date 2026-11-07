@@ -23,7 +23,6 @@
         padding: 80px 88px;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
       }
       /* Faint grid texture, masked so it fades out toward the bottom-left. */
       body::before {
@@ -36,12 +35,7 @@
         background-size: 48px 48px;
         mask-image: radial-gradient(800px 500px at 100% 0%, black, transparent 75%);
       }
-      .mark {
-        width: 64px; height: 64px; border-radius: 16px;
-        background: #ececee; color: #0c0c0e;
-        display: grid; place-items: center;
-        font-weight: 650; font-size: 26px; letter-spacing: -0.02em;
-      }
+      .intro { margin: auto 0; }
       h1 { font-size: 92px; font-weight: 650; letter-spacing: -0.035em; line-height: 1; }
       .role { margin-top: 26px; font-size: 36px; color: #9a9aa3; letter-spacing: -0.01em; }
       .footer { display: flex; align-items: center; justify-content: space-between; font-size: 26px; color: #9a9aa3; }
@@ -51,8 +45,7 @@
     </style>
   </head>
   <body>
-    <div class="mark">BC</div>
-    <div>
+    <div class="intro">
       <h1>Bill Cummings</h1>
       <p class="role">Network Operations Analyst — Reporting &amp; Analysis</p>
     </div>

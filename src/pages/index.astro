@@ -8,7 +8,8 @@ const description = profile.intro;
 const shareTitle = `${profile.name} — ${profile.headline.split(" — ")[0]}`;
 // Preview images must be absolute URLs; Astro.site comes from astro.config.mjs.
 const siteUrl = new URL("/", Astro.site).href;
-const ogImage = new URL("/og.png", Astro.site).href;
+// Bump ?v= whenever og.png changes so apps that cached the old preview fetch the new one.
+const ogImage = new URL("/og.png?v=2", Astro.site).href;
 const year = new Date().getFullYear();
 const current = profile.experience.find((role) => role.current);
 ---
