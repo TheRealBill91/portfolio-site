@@ -1,0 +1,13 @@
+// Cloudflare Workers static-assets config. `npm run build && npx wrangler deploy` uploads ./dist.
+{
+  "name": "portfolio-site",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "billycummings.com", "custom_domain": true },
+    { "pattern": "www.billycummings.com", "custom_domain": true }
+  ]
+}

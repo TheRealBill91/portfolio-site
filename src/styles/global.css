@@ -1,0 +1,80 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Color tokens: one neutral scale plus a single accent, with dark-mode overrides. */
+:root {
+  --bg: #fbfbfa;
+  --fg: #18181b;
+  --muted: #63636b;
+  --faint: #e7e5e4;
+  --accent: #2f5bd3;
+  color-scheme: light;
+}
+
+/* Dark theme: chosen explicitly via the toggle (data-theme="dark"),
+   or by the system setting when no explicit choice has been made. */
+:root[data-theme="dark"] {
+  --bg: #0c0c0e;
+  --fg: #ececee;
+  --muted: #9a9aa3;
+  --faint: #232327;
+  --accent: #8aa7ff;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0c0e;
+    --fg: #ececee;
+    --muted: #9a9aa3;
+    --faint: #232327;
+    --accent: #8aa7ff;
+    color-scheme: dark;
+  }
+}
+
+/* Toggle icon: show the sun in dark mode (click for light), the moon in light mode. */
+.icon-sun {
+  display: none;
+}
+:root[data-theme="dark"] .icon-sun {
+  display: block;
+}
+:root[data-theme="dark"] .icon-moon {
+  display: none;
+}
+
+html {
+  background: var(--bg);
+  color: var(--fg);
+  font-feature-settings: "cv11", "ss01";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--accent) 25%, transparent);
+}
+
+/* Gentle staggered fade-in on load; disabled for people who prefer reduced motion. */
+.reveal {
+  animation: reveal 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}
