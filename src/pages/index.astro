@@ -52,9 +52,12 @@ const pad = (n: number) => String(n).padStart(2, "0");
     <meta name="theme-color" content="#f3f0e8" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0e0f0d" media="(prefers-color-scheme: dark)" />
     <script is:inline>
-      // Runs before first paint: apply a saved theme choice, else the system preference.
+      // Runs before first paint. Follows the device's light/dark setting; a toggle
+      // choice only lasts for the current visit (sessionStorage), so each new visit
+      // goes back to matching the device. Also clears the old, permanent choice.
+      localStorage.removeItem("theme");
       document.documentElement.dataset.theme =
-        localStorage.getItem("theme") ??
+        sessionStorage.getItem("theme") ??
         (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
     </script>
   </head>

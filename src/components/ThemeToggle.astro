@@ -23,12 +23,13 @@
   button?.addEventListener("click", () => {
     const next = root.dataset.theme === "dark" ? "light" : "dark";
     root.dataset.theme = next;
-    localStorage.setItem("theme", next);
+    sessionStorage.setItem("theme", next);
   });
 
-  // Follow system changes until the visitor makes an explicit choice.
+  // Follow system changes (e.g. macOS/iOS "Automatic" switching at sunset)
+  // unless the visitor picked a theme during this visit.
   matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-    if (!localStorage.getItem("theme")) {
+    if (!sessionStorage.getItem("theme")) {
       root.dataset.theme = event.matches ? "dark" : "light";
     }
   });
